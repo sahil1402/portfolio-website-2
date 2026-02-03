@@ -25,23 +25,23 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://eindev.ir'),
   title: {
-    default: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
+    default: "SAHILDEV — Sahil Satasiya's Digital Laboratory",
     template: "%s | EINCODE",
   },
   description:
-    "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Ehsan Ghaffar.",
+    "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Sahil Satasiya.",
   keywords: ["Software Engineering", "Web Development", "Next.js", "React", "TypeScript", "AI", "Machine Learning", "Systems Programming", "Code Experiments"],
-  authors: [{ name: "Ehsan Ghaffar", url: "https://github.com/ehsanghaffar" }],
-  creator: "Ehsan Ghaffar",
-  publisher: "Ehsan Ghaffar",
+  authors: [{ name: "Sahil Satasiya", url: "https://github.com/sahilsatasiya" }],
+  creator: "Sahil Satasiya",
+  publisher: "Sahil Satasiya",
   generator: "v0.app",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "/",
-    title: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
-    description: "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Ehsan Ghaffar.",
-    siteName: "EINCODE",
+    title: "SAHILDEV — Sahil Satasiya's Digital Laboratory",
+    description: "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Sahil Satasiya.",
+    siteName: "SAHILDEV",
     images: [
       {
         url: "/og-image.png",
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
+    title: "SAHILDEV — Sahil Satasiya's Digital Laboratory",
     description: "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts.",
-    creator: "@ehsanghaffar",
+    creator: "@sahilsatasiya",
     images: ["/og-image.png"],
   },
   robots: {
