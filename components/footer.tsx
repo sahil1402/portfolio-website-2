@@ -1,10 +1,9 @@
 import { Github, Twitter, Linkedin, Mail, ExternalLink, Heart, Calendar } from "lucide-react"
 
 const socialLinks = [
-  { label: "GitHub", href: "https://github.com/ehsanghaffar", handle: "@ehsanghaffar", icon: Github },
-  { label: "Twitter", href: "https://twitter.com/ehsanghaffar", handle: "@ehsanghaffar", icon: Twitter },
-  { label: "LinkedIn", href: "https://linkedin.com/in/ehsanghaffar", handle: "/in/ehsanghaffar", icon: Linkedin },
-  { label: "Email", href: "mailto:hello@ehsanghaffar.dev", handle: "hello@ehsanghaffar.dev", icon: Mail },
+  { label: "GitHub", href: "https://github.com/sahil1402", handle: "@sahil1402", icon: Github },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/sahilsatasiya/", handle: "@sahilsatasiya", icon: Linkedin },
+  { label: "Email", href: "mailto:satasiyasahil14@gmail.com", handle: "satasiyasahil14@gmail.com", icon: Mail },
 ]
 
 export function Footer() {
@@ -28,7 +27,7 @@ export function Footer() {
 
             <div className="pt-2 space-y-5">
               <a
-                href="mailto:hello@ehsanghaffar.dev"
+                href="mailto:satasiyasahil14@gmail.com"
                 className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-xl border border-primary bg-primary/10 px-8 py-4 sm:py-4 font-mono text-sm text-primary transition-all duration-500 hover:text-primary-foreground active:scale-[0.98] w-full sm:w-auto"
               >
                 <span className="relative z-10">send a signal</span>
@@ -39,7 +38,7 @@ export function Footer() {
               <div className="space-y-2">
                 <p className="font-mono text-xs text-muted-foreground">Or schedule a call</p>
                 <a
-                  href="https://cal.com"
+                  href="https://calendly.com/satasiyasahil14/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2 font-mono text-sm text-primary transition-colors hover:text-primary/80"
@@ -109,9 +108,6 @@ export function Footer() {
             ))}
           </div>
 
-          <p className="font-mono text-xs text-muted-foreground text-center sm:text-right">
-            © {new Date().getFullYear()} EINCODE — All experiments reserved
-          </p>
         </div>
       </div>
     </footer>

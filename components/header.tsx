@@ -15,9 +15,8 @@ const navItems = [
 ]
 
 const socialLinks = [
-  { label: "GitHub", href: "https://github.com/ehsanghaffar", icon: Github },
-  { label: "Twitter", href: "https://twitter.com/ehsanghaffar", icon: Twitter },
-  { label: "LinkedIn", href: "https://linkedin.com/in/ehsanghaffar", icon: Linkedin },
+  { label: "GitHub", href: "https://github.com/sahil1402", icon: Github },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/sahilsatasiya/", icon: Linkedin },
 ]
 
 export function Header() {
@@ -53,9 +52,9 @@ export function Header() {
               <span className="glitch">{"⚡"}</span>
             </div>
             <span className="font-mono text-sm tracking-tight">
-              EIN
+              SAHIL
               <span className="bg-gradient-to-l from-primary/50 to-accent bg-clip-text text-transparent font-semibold">
-                CODE
+                DEV
               </span>
             </span>
           </Link>
