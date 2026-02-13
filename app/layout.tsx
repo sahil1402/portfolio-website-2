@@ -23,15 +23,15 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://eindev.ir'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://sahildev.ir'),
   title: {
     default: "SAHILDEV — Sahil Satasiya's Digital Laboratory",
-    template: "%s | EINCODE",
+    template: "%s | SahilCODE",
   },
   description:
     "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Sahil Satasiya.",
   keywords: ["Software Engineering", "Web Development", "Next.js", "React", "TypeScript", "AI", "Machine Learning", "Systems Programming", "Code Experiments"],
-  authors: [{ name: "Sahil Satasiya", url: "https://github.com/sahilsatasiya" }],
+  authors: [{ name: "Sahil Satasiya", url: "https://github.com/sahil1402" }],
   creator: "Sahil Satasiya",
   publisher: "Sahil Satasiya",
   generator: "v0.app",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "EINCODE — Ehsan Ghaffar's Digital Laboratory",
+        alt: "SAHILDEV — Sahil Satasiya's Digital Laboratory",
       },
     ],
   },
