@@ -1,161 +1,88 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState, useEffect } from "react"
+
+const technologies = [
+  { name: "GitHub", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", x: 15, y: 5, size: 38 },
+  { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg", x: 75, y: 8, size: 52 },
+  { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", x: 45, y: 3, size: 34 },
+  { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", x: 8, y: 25, size: 55 },
+  { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", x: 35, y: 20, size: 38 },
+  { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-line.svg", x: 58, y: 28, size: 48 },
+  { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", x: 85, y: 25, size: 44 },
+  { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", x: 12, y: 48, size: 42 },
+  { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg", x: 48, y: 45, size: 50 },
+  { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", x: 80, y: 48, size: 40 },
+  { name: "TensorFlow", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg", x: 30, y: 42, size: 36 },
+  { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", x: 25, y: 68, size: 46 },
+  { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", x: 65, y: 65, size: 38 },
+  { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", x: 88, y: 70, size: 34 },
+  { name: "Redis", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg", x: 50, y: 82, size: 32 },
+  { name: "Linux", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg", x: 10, y: 85, size: 30 },
+];
 
 export function AnimatedAvatar() {
-  const [blink, setBlink] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const blinkInterval = setInterval(() => {
-      setBlink(true)
-      setTimeout(() => setBlink(false), 150)
-    }, 3000)
-    return () => clearInterval(blinkInterval)
-  }, [])
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const maxScroll = 400;
+      const progress = Math.min(scrollY / maxScroll, 1);
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const getGridPosition = (tech: typeof technologies[0], index: number) => {
+    const progress = scrollProgress;
+    const cols = 4;
+    const row = Math.floor(index / cols);
+    const col = index % cols;
+
+    return {
+      left: `${tech.x + (10 + col * 22 - tech.x) * progress}%`,
+      top: `${tech.y + (10 + row * 22 - tech.y) * progress}%`,
+      size: tech.size * (1 - progress * 0.2) + 36 * progress,
+      opacity: (1 - (tech.y / 100) * 0.8) * (1 - progress) + progress,
+    };
+  };
 
   return (
-    <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80">
-      <svg
-        viewBox="0 0 200 200"
-        className="w-full h-full"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {/* Background circle */}
-        <circle
-          cx="100"
-          cy="100"
-          r="95"
-          className="fill-card stroke-primary/30"
-          strokeWidth="2"
-        />
+    <div className="relative w-[400px] h-[450px] sm:w-[450px] sm:h-[500px]">
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-6px); }
+        }
+      `}</style>
 
-        {/* Animated background pattern */}
-        <g className="animate-pulse opacity-20">
-          <circle cx="100" cy="100" r="80" className="stroke-primary fill-none" strokeWidth="0.5" strokeDasharray="4 4" />
-          <circle cx="100" cy="100" r="60" className="stroke-primary fill-none" strokeWidth="0.5" strokeDasharray="4 4" />
-          <circle cx="100" cy="100" r="40" className="stroke-primary fill-none" strokeWidth="0.5" strokeDasharray="4 4" />
-        </g>
-
-        {/* Head/Face base */}
-        <ellipse
-          cx="100"
-          cy="95"
-          rx="45"
-          ry="50"
-          className="fill-primary/10 stroke-primary/50"
-          strokeWidth="2"
-        />
-
-        {/* Hair */}
-        <path
-          d="M55 75 Q55 45 100 45 Q145 45 145 75 Q145 60 130 55 Q115 50 100 52 Q85 50 70 55 Q55 60 55 75"
-          className="fill-foreground/80"
-        />
-        
-        {/* Glasses frame */}
-        <g className="stroke-foreground/70 fill-none" strokeWidth="2">
-          {/* Left lens */}
-          <rect x="62" y="85" width="28" height="22" rx="4" className="fill-primary/5" />
-          {/* Right lens */}
-          <rect x="110" y="85" width="28" height="22" rx="4" className="fill-primary/5" />
-          {/* Bridge */}
-          <path d="M90 96 Q100 92 110 96" />
-          {/* Temple arms */}
-          <path d="M62 92 L55 88" />
-          <path d="M138 92 L145 88" />
-        </g>
-
-        {/* Eyes */}
-        <g>
-          {/* Left eye */}
-          <ellipse
-            cx="76"
-            cy={blink ? "96" : "96"}
-            rx="5"
-            ry={blink ? "1" : "5"}
-            className="fill-foreground transition-all duration-100"
+      {technologies.map((tech, i) => {
+        const animated = getGridPosition(tech, i);
+        return (
+          <img
+            key={tech.name}
+            src={tech.logo}
+            alt={tech.name}
+            title={tech.name}
+            style={{
+              position: "absolute",
+              left: animated.left,
+              top: animated.top,
+              width: `${animated.size}px`,
+              height: `${animated.size}px`,
+              objectFit: "contain",
+              opacity: animated.opacity,
+              filter: "brightness(0) invert(1) drop-shadow(0 0 10px rgba(45, 212, 191, 0.7))",
+              animation: scrollProgress < 0.1 ? `float 3s ease-in-out infinite` : "none",
+              animationDelay: `${i * 0.12}s`,
+              transition: "left 0.15s ease-out, top 0.15s ease-out, width 0.15s, height 0.15s, opacity 0.15s",
+            }}
           />
-          {/* Right eye */}
-          <ellipse
-            cx="124"
-            cy={blink ? "96" : "96"}
-            rx="5"
-            ry={blink ? "1" : "5"}
-            className="fill-foreground transition-all duration-100"
-          />
-          {/* Eye shine */}
-          {!blink && (
-            <>
-              <circle cx="78" cy="94" r="2" className="fill-background/80" />
-              <circle cx="126" cy="94" r="2" className="fill-background/80" />
-            </>
-          )}
-        </g>
-
-        {/* Nose */}
-        <path
-          d="M100 100 L100 112 Q97 115 100 115"
-          className="stroke-foreground/30 fill-none"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-
-        {/* Smile */}
-        <path
-          d="M85 125 Q100 135 115 125"
-          className="stroke-foreground/60 fill-none"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-
-        {/* Neck */}
-        <rect
-          x="88"
-          y="143"
-          width="24"
-          height="15"
-          className="fill-primary/10"
-        />
-
-        {/* Shoulders/Hoodie */}
-        <path
-          d="M50 195 Q50 160 75 155 L88 155 L88 158 Q100 165 112 158 L112 155 L125 155 Q150 160 150 195"
-          className="fill-primary/20 stroke-primary/40"
-          strokeWidth="2"
-        />
-        
-        {/* Hoodie collar */}
-        <path
-          d="M88 158 Q100 170 112 158"
-          className="stroke-primary/40 fill-none"
-          strokeWidth="2"
-        />
-
-        {/* Code brackets decoration */}
-        <g className="animate-float-slow">
-          <text x="30" y="60" className="fill-primary/40 text-xl font-mono">{"{"}</text>
-          <text x="160" y="150" className="fill-primary/40 text-xl font-mono">{"}"}</text>
-        </g>
-
-        {/* Floating particles */}
-        <g className="animate-pulse">
-          <circle cx="45" cy="90" r="2" className="fill-primary/30" />
-          <circle cx="155" cy="80" r="1.5" className="fill-primary/40" />
-          <circle cx="40" cy="130" r="1" className="fill-primary/20" />
-          <circle cx="160" cy="120" r="2" className="fill-primary/30" />
-        </g>
-      </svg>
-
-      {/* Orbiting elements */}
-      <div className="absolute inset-0 animate-spin-slow">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary/40 blur-[1px]" />
-      </div>
-      <div className="absolute inset-0 animate-spin-slow-reverse">
-        <div className="absolute bottom-4 right-4 w-2 h-2 rounded-full bg-primary/30 blur-[1px]" />
-      </div>
-
-      {/* Glow effect */}
-      <div className="absolute inset-0 rounded-full bg-primary/5 blur-xl -z-10 animate-pulse" />
+        );
+      })}
     </div>
-  )
+  );
 }
