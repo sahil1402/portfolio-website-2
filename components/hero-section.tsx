@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { AnimatedAvatar } from "./animated-avatar"
 
-const roles = ["building interfaces", "exploring systems", "breaking barriers", "forging ideas", "crafting code"]
+const roles = ["building interfaces", "exploring systems", "breaking barriers", "forging ideas", "crafting code","exploring LLMs"]
 
 export function HeroSection() {
   const [currentRole, setCurrentRole] = useState(0)
@@ -43,7 +43,7 @@ export function HeroSection() {
           <div className="space-y-8 sm:space-y-10">
             <div className="space-y-3 animate-fade-in-up">
               <p className="font-mono text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-primary">
-                EinCode — Where Code Meets Curiosity
+                SAHILDEV — Where Code Meets Curiosity
               </p>
               <h1 className="text-4xl font-bold tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl text-balance">
                 Forging digital
@@ -57,9 +57,9 @@ export function HeroSection() {
             </div>
 
             <p className="max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground animate-fade-in-up stagger-2">
-              Welcome to my digital workshop — a space for experiments, prototypes, and open-source artifacts. Currently
-              building at <span className="text-foreground font-medium">...</span>. Here, ideas are forged,
-              tested, and refined. Not a portfolio. A laboratory.
+              Welcome to my workspace — a collection of systems, experiments, and evolving ideas. Here, ideas are forged.
+              <br />
+                <span className="text-foreground font-semibold">"Not a portfolio. A laboratory".</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up stagger-3">
