@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { cn } from "@/lib/utils"
-import { ArrowRight, FileText } from "lucide-react"
+import { ArrowRight, Briefcase, ChevronDown } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -10,118 +10,117 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 
-interface Note {
+interface Experience {
   id: number
-  title: string
-  excerpt: string
-  date: string
-  category: string
-  content: string
-  keyTakeaways: string[]
+  role: string
+  company: string
+  duration: string
+  summary: string
+  description: string
+  achievements: string[]
 }
 
-const notes: Note[] = [
+const experiences: Experience[] = [
   {
     id: 1,
-    title: "Building a Linux distro from scratch",
-    excerpt: "Learnings from compiling the kernel, configuring BusyBox, and creating bootable ISOs with Syslinux.",
-    date: "Nov 2025",
-    category: "systems",
-    content: "This project started as a curiosity about how Linux systems actually boot and evolved into a full minimal distribution. I compiled the Linux kernel from source with a custom configuration, set up BusyBox as the init system and core utilities, and used Syslinux as the bootloader. The result is a ~15MB bootable ISO that runs entirely in RAM.",
-    keyTakeaways: [
-      "The kernel is surprisingly configurable - you can strip it down to just what you need",
-      "BusyBox is an incredible piece of software that replaces hundreds of utilities",
-      "Understanding the boot process demystifies a lot of 'magic' in modern distros",
-      "Docker makes reproducible builds much easier for this kind of project",
+    role: "Co-Founder & Founding ML Engineer",
+    company: "CampusX",
+    duration: "Sep 2025 - Jan 2026",
+    summary: "Built end-to-end ML pipelines and predictive models for a marketplace platform, improving feed conversion by 12%.",
+    description: "As Co-Founder and Founding ML Engineer at CampusX in Los Angeles, I led the development of machine learning infrastructure and data analytics systems. I worked on marketplace behavioral data to drive product decisions and built scalable ML solutions from the ground up.",
+    achievements: [
+      "Conducted in-depth EDA on marketplace data to identify seasonality trends and demand shifts",
+      "Designed and deployed end-to-end ML pipelines using Python, SQL, and AWS",
+      "Built predictive ranking and classification models, improving feed conversion by 12%",
+      "Collaborated cross-functionally to translate requirements into scalable ML solutions",
     ],
   },
   {
     id: 2,
-    title: "MCP protocol in LLM apps",
-    excerpt: "Implementing Model Context Protocol for seamless AI model interactions with vector databases in RAG apps.",
-    date: "Apr 2025",
-    category: "ai",
-    content: "Model Context Protocol (MCP) provides a standardized way for LLMs to interact with external tools and data sources. I integrated MCP into a RAG application to allow the model to query vector databases, fetch documents, and maintain conversation context across multiple turns without custom tool implementations.",
-    keyTakeaways: [
-      "MCP simplifies tool integration by providing a standard interface",
-      "Context management becomes much cleaner with protocol-level support",
-      "Vector database queries can be abstracted as MCP resources",
-      "The protocol handles serialization and error handling automatically",
+    role: "AI Engineer",
+    company: "Tata Consultancy Services LTD.",
+    duration: "May 2024 - June 2025",
+    summary: "Developed scalable data pipelines processing 80K+ records and built forecasting models, reducing pipeline failures by 15%.",
+    description: "As an AI Engineer at TCS in Pune, I focused on building robust data infrastructure and predictive analytics systems. I worked on demand forecasting initiatives, developing end-to-end pipelines from data ingestion to model deployment while ensuring reliability through CI/CD practices.",
+    achievements: [
+      "Developed scalable PySpark and SQL-based pipelines processing 80K+ records",
+      "Performed large-scale data wrangling, normalization, and feature engineering",
+      "Built regression and forecasting models using time-aware cross-validation",
+      "Improved reliability of 20+ ETL workflows, reducing pipeline failures by 15%",
     ],
   },
   {
     id: 3,
-    title: "Next.js 16 + Tailwind v4",
-    excerpt: "Exploring the new features in Next.js 16 and migrating to Tailwind CSS v4's new configuration system.",
-    date: "Dec 2024",
-    category: "frontend",
-    content: "Next.js 16 brings significant improvements including better caching, improved turbopack stability, and the new 'use cache' directive. Combined with Tailwind v4's CSS-first configuration approach, the developer experience has improved dramatically. Migration required updating the config from JS to CSS but the result is cleaner and more maintainable.",
-    keyTakeaways: [
-      "Tailwind v4 uses @theme in CSS instead of tailwind.config.js",
-      "The 'use cache' directive makes caching explicit and predictable",
-      "Turbopack is now stable and noticeably faster than webpack",
-      "Migration is straightforward but requires touching global styles",
+    role: "Machine Learning Engineer Intern",
+    company: "RethinkSoft",
+    duration: "May 2023 - July 2023",
+    summary: "Built flight price forecasting models achieving 98% accuracy and automated EDA pipelines, reducing manual analysis time by 30%.",
+    description: "As an ML Engineer Intern at RethinkSoft in Ahmedabad, I worked on flight pricing optimization using predictive analytics. I analyzed large-scale time-series data to identify demand patterns and built accurate forecasting models to support data-driven pricing decisions.",
+    achievements: [
+      "Performed EDA and time-series analysis on 55K+ flight dataset for demand patterns",
+      "Developed forecasting models achieving 98% accuracy on predictive benchmarks",
+      "Automated EDA and visualization pipelines, reducing manual analysis time by 30%",
+      "Performed feature importance analysis and hyperparameter tuning for model optimization",
     ],
   },
   {
     id: 4,
-    title: "Self-hosting LLMs with FastAPI",
-    excerpt: "Running Llama2 locally and building a personal chatbot API for natural language tasks.",
-    date: "Oct 2023",
-    category: "ai",
-    content: "Setting up a local LLM inference server using FastAPI and llama.cpp. The goal was to have a private, offline-capable chatbot API that could be used for development and testing without sending data to external services. Quantized models make this feasible on consumer hardware with 16GB+ RAM.",
-    keyTakeaways: [
-      "4-bit quantization reduces memory requirements significantly with minimal quality loss",
-      "FastAPI's async support is crucial for handling multiple concurrent requests",
-      "Streaming responses provide much better UX for chat applications",
-      "Local inference is viable for development but production needs more consideration",
+    role: "Machine Learning Intern",
+    company: "NeuroNexus Innovations",
+    duration: "Feb 2023 - Apr 2023",
+    summary: "Developed student performance prediction pipeline achieving 87% accuracy using supervised learning on 20K+ records.",
+    description: "As an ML Intern at NeuroNexus Innovations, I built a supervised learning pipeline to predict student performance using academic and behavioral data. I implemented multiple models and created automated evaluation scripts to improve experiment reproducibility.",
+    achievements: [
+      "Developed supervised learning pipeline for student performance prediction on 20K+ records",
+      "Implemented and compared logistic regression, random forest, and XGBoost models",
+      "Achieved 87% classification accuracy through cross-validation and hyperparameter tuning",
+      "Built automated EDA and evaluation scripts, improving experiment reproducibility",
     ],
   },
 ]
 
 export function LabNotes() {
-  const [selectedNote, setSelectedNote] = useState<Note | null>(null)
+  const [selectedExp, setSelectedExp] = useState<Experience | null>(null)
+  const [showAll, setShowAll] = useState(false)
+
+  const visibleExperiences = showAll ? experiences : experiences.slice(0, 3)
 
   return (
-    <section id="notes" className="px-4 sm:px-6 py-20 sm:py-28 border-t border-border/30">
+    <section id="experience" className="px-4 sm:px-6 py-20 sm:py-28 border-t border-border/30">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 sm:mb-14 space-y-3 animate-fade-in-up">
           <p className="font-mono text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-primary">Career</p>
-<h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Work Experience</h2>
-<p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-  My professional journey and the roles that shaped my skills.
-</p>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Work Experience</h2>
+          <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
+            My professional journey and the roles that shaped my skills.
+          </p>
         </div>
 
         <div className="flex flex-col gap-6">
-          {notes.map((note, index) => (
+          {visibleExperiences.map((exp, index) => (
             <article
-              key={note.id}
+              key={exp.id}
               className="group relative cursor-pointer overflow-hidden rounded-2xl border border-border bg-card/40 glass p-8 sm:p-10 transition-all duration-400 hover:border-primary/40 hover:bg-card/60 active:scale-[0.99] hover-lift animate-fade-in-up"
               style={{ animationDelay: `${index * 100 + 200}ms` }}
-              onClick={() => setSelectedNote(note)}
+              onClick={() => setSelectedExp(exp)}
             >
-              <div
-                className="absolute inset-0 bg-gradient-to-br from-primary/15 to-primary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-              />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/15 to-primary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
               <div className="relative z-10">
-                <div className="mb-5 sm:mb-6 flex items-center justify-between gap-3">
-                  <span className="rounded-lg border border-border/80 bg-secondary/60 px-4 py-2 font-mono text-sm text-muted-foreground transition-colors group-hover:border-primary/50 group-hover:text-foreground">
-                    {note.category}
-                  </span>
-                  <span className="font-mono text-sm text-muted-foreground">{note.date}</span>
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-gradient">
+                    {exp.role}
+                  </h3>
+                  <span className="font-mono text-base text-muted-foreground">{exp.duration}</span>
                 </div>
 
-                <h3 className="mb-4 text-xl sm:text-2xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-gradient">
-                  {note.title}
-                </h3>
+                <p className="mb-4 text-lg text-primary font-medium">{exp.company}</p>
 
-                <p className="text-base leading-relaxed text-muted-foreground">{note.excerpt}</p>
+                <p className="text-lg leading-relaxed text-muted-foreground">{exp.summary}</p>
 
-                <div className="mt-6 flex items-center gap-2 font-mono text-sm text-primary transition-all duration-300 sm:opacity-0 sm:translate-x-[-8px] group-hover:opacity-100 group-hover:translate-x-0">
-                  <span>read more</span>
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                <div className="mt-6 flex items-center gap-2 font-mono text-base text-primary transition-all duration-300 sm:opacity-0 sm:translate-x-[-8px] group-hover:opacity-100 group-hover:translate-x-0">
+                  <span>view details</span>
+                  <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
               </div>
 
@@ -129,45 +128,56 @@ export function LabNotes() {
             </article>
           ))}
         </div>
+
+        {/* Load More Button */}
+        {experiences.length > 3 && (
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="group flex items-center gap-2 px-6 py-3 rounded-xl border border-border bg-card/40 glass font-mono text-base text-muted-foreground transition-all duration-300 hover:border-primary/40 hover:text-primary hover:bg-card/60"
+            >
+              <span>{showAll ? "Show Less" : "Load More"}</span>
+              <ChevronDown className={`h-5 w-5 transition-transform duration-300 ${showAll ? "rotate-180" : ""}`} />
+            </button>
+          </div>
+        )}
       </div>
 
-      {/* Note Detail Modal */}
-      <Dialog open={!!selectedNote} onOpenChange={(open) => !open && setSelectedNote(null)}>
+      {/* Experience Detail Modal */}
+      <Dialog open={!!selectedExp} onOpenChange={(open) => !open && setSelectedExp(null)}>
         <DialogContent className="max-w-[1500px] max-h-[85vh] overflow-y-auto bg-background backdrop-blur-xl border-border shadow-2xl">
-          {selectedNote && (
+          {selectedExp && (
             <>
               <DialogHeader className="flex flex-row items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/15 border border-primary/30">
-                  <FileText className="h-6 w-6 text-primary" />
+                  <Briefcase className="h-6 w-6 text-primary" />
                 </div>
                 <div className="flex-1">
-                  <DialogTitle className="text-xl font-bold">{selectedNote.title}</DialogTitle>
+                  <DialogTitle className="text-xl font-bold">{selectedExp.role}</DialogTitle>
                   <div className="flex items-center gap-3 mt-1">
                     <span className="rounded-md border border-primary/40 bg-primary/10 px-2 py-0.5 font-mono text-xs text-primary">
-                      {selectedNote.category}
+                      {selectedExp.company}
                     </span>
-                    <span className="font-mono text-sm text-muted-foreground">{selectedNote.date}</span>
+                    <span className="font-mono text-sm text-muted-foreground">{selectedExp.duration}</span>
                   </div>
                 </div>
               </DialogHeader>
 
               <div className="space-y-6 mt-4">
-                {/* Content */}
-                <p className="text-muted-foreground leading-relaxed">{selectedNote.content}</p>
+                <p className="text-muted-foreground leading-relaxed">{selectedExp.description}</p>
 
-                {/* Key Takeaways */}
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <div className="h-px w-8 bg-primary" />
                     <h4 className="font-mono text-xs uppercase tracking-wider text-primary font-semibold">
-                      Key Takeaways
+                      Key Achievements
                     </h4>
                   </div>
                   <ul className="space-y-2 pl-11">
-                    {selectedNote.keyTakeaways.map((takeaway, index) => (
+                    {selectedExp.achievements.map((achievement, index) => (
                       <li key={index} className="text-muted-foreground leading-relaxed text-sm flex items-start gap-2">
                         <span className="text-primary mt-1.5 shrink-0">-</span>
-                        <span>{takeaway}</span>
+                        <span>{achievement}</span>
                       </li>
                     ))}
                   </ul>
