@@ -40,8 +40,8 @@ export default function Home() {
         <div className="relative z-10">
           <Header />
           <HeroSection />
-          <ProjectsGrid />
           <LabNotes />
+          <ProjectsGrid />
           <Workbench />
           <Footer />
         </div>
