@@ -77,6 +77,22 @@ const experiences: Experience[] = [
       "Built automated EDA and evaluation scripts, improving experiment reproducibility",
     ],
   },
+  {
+  id: 5,
+  role: "Web Developer",
+  company: "R. R. Infraprojects Pvt. Ltd",
+  duration: "Jan 2023",
+  summary: "Developed responsive, scalable web applications using React and Next.js, optimizing performance and deployment workflows.",
+  description: "As a Web Developer at R. R. Infraprojects Pvt. Ltd, I designed and developed responsive, user-centric web applications using React.js and Next.js. I implemented reusable component architectures, integrated RESTful APIs, and optimized application performance through modern frontend best practices. I collaborated with cross-functional teams in Agile environments to translate business requirements into scalable, maintainable solutions.",
+  achievements: [
+    "Designed and developed responsive web applications using React.js, Next.js, and modern JavaScript (ES6+)",
+    "Implemented reusable component architectures with Tailwind CSS and Material UI",
+    "Integrated RESTful APIs and managed state using Redux and Context API",
+    "Optimized performance through lazy loading, code splitting, and Lighthouse best practices",
+    "Ensured cross-browser compatibility and improved frontend scalability",
+    "Utilized Git, GitHub, CI/CD workflows, and deployed applications via Vercel and Docker"
+  ],
+},
 ]
 
 export function LabNotes() {
