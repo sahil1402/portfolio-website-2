@@ -9,6 +9,7 @@ import { Workbench } from "@/components/workbench"
 import { Footer } from "@/components/footer"
 import { CursorGlow } from "@/components/cursor-glow"
 import { LoadingScreen } from "@/components/loading-screen"
+import { AIChatbot } from "@/components/ai-chatbot"
 import { generateWebsiteStructuredData, generatePersonStructuredData } from "@/lib/structured-data"
 
 export default function Home() {
@@ -45,6 +46,7 @@ export default function Home() {
           <Workbench />
           <Footer />
         </div>
+        <AIChatbot />
       </main>
     </>
   )
