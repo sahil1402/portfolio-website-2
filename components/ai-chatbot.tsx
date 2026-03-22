@@ -142,6 +142,99 @@ export function AIChatbot() {
     }
   }
 
+  // Simple pattern matching for offline responses
+  const getOfflineResponse = (question: string): string => {
+    const q = question.toLowerCase()
+    
+    // Greetings
+    if (q.match(/\b(hi|hello|hey|greetings)\b/)) {
+      return "Hey there! I'm Sahil's AI assistant. Feel free to ask me about his experience, skills, education, or projects!"
+    }
+    
+    // Recent/Latest experience
+    if (q.match(/\b(recent|latest|current|last|campusx|new)\b/) && q.match(/\b(experience|work|job|role|position)\b/)) {
+      return "Sahil's most recent role was Co-Founder & Founding ML Engineer at CampusX (Sep 2025 - Jan 2026) in Los Angeles. He built end-to-end ML pipelines, predictive models, and improved feed conversion by 12% using Python, SQL, and AWS."
+    }
+    
+    // CampusX specific
+    if (q.match(/\b(campusx|campus x)\b/)) {
+      return "At CampusX (Sep 2025 - Jan 2026), Sahil was Co-Founder & Founding ML Engineer. He built end-to-end ML pipelines and predictive models, improving feed conversion by 12% using Python, SQL, and AWS."
+    }
+    
+    // TCS specific
+    if (q.match(/\b(tcs|tata|consultancy)\b/)) {
+      return "At Tata Consultancy Services (May 2024 - June 2025), Sahil worked as an AI Engineer. He developed scalable PySpark and SQL pipelines processing 80K+ records and built forecasting models that reduced pipeline failures by 15%."
+    }
+    
+    // RethinkSoft specific
+    if (q.match(/\b(rethinksoft|rethink)\b/)) {
+      return "At RethinkSoft (May 2023 - July 2023), Sahil was an ML Engineer Intern. He built flight price forecasting models with 98% accuracy and automated EDA pipelines, reducing analysis time by 30%."
+    }
+    
+    // NeuroNexus specific
+    if (q.match(/\b(neuronexus|neuro)\b/)) {
+      return "At NeuroNexus Innovations (Feb 2023 - Apr 2023), Sahil worked as an ML Intern. He developed student performance prediction systems achieving 87% accuracy using logistic regression, random forest, and XGBoost."
+    }
+    
+    // General experience questions
+    if (q.match(/\b(experience|work|job|career|role|position|company|companies)\b/)) {
+      return "Sahil has great experience! Most recently, he was Co-Founder & ML Engineer at CampusX where he built ML pipelines and improved feed conversion by 12%. Before that, he was an AI Engineer at TCS, working on PySpark pipelines processing 80K+ records. He also interned at RethinkSoft and NeuroNexus Innovations."
+    }
+    
+    // Skills
+    if (q.match(/\b(skill|tech|stack|programming|language|tool|framework|know)\b/)) {
+      return "Sahil is skilled in Python, SQL, JavaScript, and TypeScript. For ML/AI, he uses TensorFlow, PyTorch, scikit-learn, and PySpark. For web development, he works with React, Next.js, FastAPI, and Node.js. He's also experienced with AWS, Docker, Git, PostgreSQL, and MongoDB."
+    }
+    
+    // Education
+    if (q.match(/\b(education|study|degree|university|college|usc|school|masters|bachelor)\b/)) {
+      return "Sahil is currently pursuing his MS in Computer Science at the University of Southern California (USC), specializing in AI/ML. He completed his BE in Computer Science from SRM Institute of Science and Technology."
+    }
+    
+    // Location
+    if (q.match(/\b(where|location|based|live|city|from|country)\b/)) {
+      return "Sahil is currently based in Los Angeles, CA, where he's pursuing his Master's at USC."
+    }
+    
+    // Contact
+    if (q.match(/\b(contact|email|reach|connect|linkedin|github|social|mail)\b/)) {
+      return "You can reach Sahil at satasiyasahil14@gmail.com. Connect with him on LinkedIn at linkedin.com/in/sahilsatasiya or check out his projects on GitHub at github.com/sahil1402."
+    }
+    
+    // Projects
+    if (q.match(/\b(project|portfolio|built|build|create|made)\b/)) {
+      return "Sahil has worked on various ML projects including flight price forecasting with 98% accuracy, student performance prediction systems, and marketplace analytics pipelines. Check out his GitHub at github.com/sahil1402 for more!"
+    }
+    
+    // Who is Sahil / About
+    if (q.match(/\b(who|about|tell me|introduce|describe)\b/) && q.match(/\b(sahil|him|he)\b/)) {
+      return "Sahil Satasiya is an AI/ML Engineer and MS Computer Science student at USC. He has experience building ML pipelines, predictive models, and data systems at companies like CampusX and TCS. He's passionate about applying ML to solve real-world problems!"
+    }
+    
+    // Internship
+    if (q.match(/\b(intern|internship)\b/)) {
+      return "Sahil completed two internships: ML Engineer Intern at RethinkSoft (May-July 2023) where he built flight price forecasting models with 98% accuracy, and ML Intern at NeuroNexus Innovations (Feb-Apr 2023) where he worked on student performance prediction achieving 87% accuracy."
+    }
+    
+    // ML/AI specific
+    if (q.match(/\b(machine learning|ml|ai|artificial intelligence|deep learning|model)\b/)) {
+      return "Sahil specializes in ML/AI! He's built forecasting models, classification systems, and data pipelines. He's skilled in TensorFlow, PyTorch, scikit-learn, and PySpark. His projects include flight price prediction (98% accuracy) and student performance prediction (87% accuracy)."
+    }
+
+    // Thank you
+    if (q.match(/\b(thank|thanks|thx)\b/)) {
+      return "You're welcome! Feel free to ask if you have more questions about Sahil. You can also contact him directly at satasiyasahil14@gmail.com."
+    }
+
+    // Bye
+    if (q.match(/\b(bye|goodbye|see you|later)\b/)) {
+      return "Goodbye! Thanks for learning about Sahil. Feel free to reach out to him at satasiyasahil14@gmail.com or connect on LinkedIn!"
+    }
+    
+    // Default fallback
+    return "I can tell you about Sahil's work experience, skills, education, projects, or how to contact him. What would you like to know?"
+  }
+
   const handleSendWithText = async (text: string) => {
     if (!text.trim() || isLoading) return
 
@@ -150,36 +243,18 @@ export function AIChatbot() {
     setInput("")
     setIsLoading(true)
 
-    try {
-      const response = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 1000,
-          system: SAHIL_INFO,
-          messages: [{ role: "user", content: text }],
-        }),
-      })
+    // Simulate a small delay for natural feel
+    await new Promise(resolve => setTimeout(resolve, 500))
 
-      const data = await response.json()
-      const responseText = data.content?.[0]?.text || "Sorry, I couldn't process that. Please try again!"
-      
-      const assistantMessage: Message = {
-        role: "assistant",
-        content: responseText
-      }
-      setMessages((prev) => [...prev, assistantMessage])
-      speakText(responseText)
-    } catch (error) {
-      const errorMsg = "Sorry, I'm having trouble connecting. Please try again later!"
-      setMessages((prev) => [...prev, { role: "assistant", content: errorMsg }])
-      speakText(errorMsg)
-    } finally {
-      setIsLoading(false)
+    const responseText = getOfflineResponse(text)
+    
+    const assistantMessage: Message = {
+      role: "assistant",
+      content: responseText
     }
+    setMessages((prev) => [...prev, assistantMessage])
+    speakText(responseText)
+    setIsLoading(false)
   }
 
   const handleSend = () => {
