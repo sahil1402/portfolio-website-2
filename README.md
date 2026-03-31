@@ -20,7 +20,7 @@ SAHILDEV is a personal portfolio website for Sahil Satasiya — an AI/ML Enginee
 
 ## Live Demo
 
-Visit: [https://sahildev.vercel.app](https://sahildev.vercel.app)
+Coming Soon!!
 
 ## Getting Started
 
@@ -112,7 +112,7 @@ Voice and text enabled assistant
 - **Email:** satasiyasahil14@gmail.com
 - **LinkedIn:** [linkedin.com/in/sahilsatasiya](https://linkedin.com/in/sahilsatasiya)
 - **GitHub:** [github.com/sahil1402](https://github.com/sahil1402)
-- **Portfolio:** [sahildev.vercel.app](https://sahildev.vercel.app)
+- **Portfolio:** Coming Soon!!
 
 ## Author
 
@@ -120,10 +120,6 @@ Voice and text enabled assistant
 - MS Computer Science @ University of Southern California
 - AI/ML Engineer
 - Full Stack Developer
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
