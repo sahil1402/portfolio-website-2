@@ -51,13 +51,13 @@ const experiences: Experience[] = [
 },
   {
   id: 2,
-  role: "AI Engineer",
+  role: "Software Engineer",
   company: "Tata Consultancy Services",
   duration: "May 2024 - Jun 2025",
   type: "full-time",
   location: "Pune, India",
   summary: "Built production data infrastructure for Givaudan ($8.5B Swiss MNC) — scalable PySpark pipelines across 6 data sources, behavioral modeling on 50K+ events, and systematic ETL stabilization reducing pipeline failures by 15%.",
-  description: "As an AI Engineer at TCS, I served Givaudan — the world's largest flavour and fragrance company — building the Martrix platform, an internal analytics system aggregating data from 6 sources across 80K+ URLs. My work spanned three workstreams: architecting distributed ETL pipelines, behavioral ranking analysis on B2B customer interaction data, and a systematic audit that shifted the team from reactive debugging to proactive prevention across 20+ workflows.",
+  description: "As an Software Engineer at TCS, I served Givaudan — the world's largest flavour and fragrance company — building the Martrix platform, an internal analytics system aggregating data from 6 sources across 80K+ URLs. My work spanned three workstreams: architecting distributed ETL pipelines, behavioral ranking analysis on B2B customer interaction data, and a systematic audit that shifted the team from reactive debugging to proactive prevention across 20+ workflows.",
   achievements: [
     "Architected PySpark ETL pipelines with explicit StructType schemas and a schema validation gate — quarantining unexpected records into a rejected partition instead of silently dropping them, preventing silent data loss across 6 sources (Google Search Console, New Relic, Medallia, Screaming Frog, SonarQube, Google Analytics)",
     "Optimized pipeline performance using broadcast joins for small dimension tables, salting for partition skew on high-traffic URL data, and .persist(MEMORY_AND_DISK) for reused intermediate DataFrames — processing 80K+ URLs daily",
@@ -240,7 +240,7 @@ export function WorkExperience() {
         </div>
       </div>
 
-      <div className="p-7 space-y-7">
+      <div className="px-7 pb-7 pt-1 space-y-7">
         {/* Overview */}
         <div>
           <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-3">
@@ -293,7 +293,7 @@ export function WorkExperience() {
             </p>
             <div className="flex flex-wrap gap-2">
               {selectedExp.techStack.map((tech, i) => (
-                <span key={i} className="rounded-lg border border-border/60 bg-secondary/40 px-3 py-1 font-mono text-xs text-muted-foreground">
+                <span key={i} className="rounded-lg border border-primary/30 bg-primary/10 px-3 py-1 font-mono text-xs text-primary transition-all duration-300 hover:bg-primary/20 hover:border-primary/60 hover:scale-105 cursor-default">
                   {tech}
                 </span>
               ))}

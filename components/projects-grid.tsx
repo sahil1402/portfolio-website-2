@@ -6,10 +6,8 @@ import { Github, Star, GitFork, ExternalLink, Sparkles, Code2 } from "lucide-rea
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
 
 interface Project {
   id: number
@@ -17,9 +15,7 @@ interface Project {
   description: string
   tags: string[]
   status: "shipped" | "in-progress"
-  year: string
-  stars: number
-  forks: number
+  impact?: { value: string; label: string }[]
   url: string
   homepage?: string
   featured: boolean
@@ -32,23 +28,25 @@ interface Project {
 
 const projects: Project[] = [
   {
-    id: 0,
-    title: "EinUI",
-    description:
-      "A collection of beautiful, ready-made Liquid Glass UI components you can preview, copy, and drop into any web app. Built on Tailwind, shadcn/ui, and Radix UI primitives.",
-    tags: ["TypeScript", "Next.js 16", "shadcn", "Radix UI", "Tailwind"],
-    status: "in-progress",
-    year: "2025",
-    stars: 34,
-    forks: 1,
-    url: "https://github.com/ehsanghaffar/einui",
-    featured: true,
-    highlight: true,
-    challenge: "Developers often struggle to find high-quality, customizable UI components that work seamlessly with modern frameworks and support glassmorphism design trends.",
-    solution: "Built a comprehensive component library with 30+ Liquid Glass UI components, featuring live previews, one-click copy functionality, and full compatibility with Tailwind CSS v4 and shadcn/ui.",
-    keyDecisions: "Chose compound component patterns for flexibility. Used CSS variables for theming to enable runtime customization. Implemented strict TypeScript to catch integration issues early.",
-    learnings: "Learned that the best design systems optimize for deletion—making it easy to remove or replace components matters as much as building them well initially.",
-  },
+  id: 0,
+  title: "Graph RAG Agent",
+  description:
+    "A Graph-based RAG agent that executes multi-step browser tasks while learning from past interactions via a persistent knowledge graph — enabling multi-hop reasoning and continuous improvement without retraining.",
+  tags: ["Python", "Graph RAG", "FastAPI", "HTML/CSS/JS", "JSON"],
+  status: "shipped",
+  impact: [
+  { value: "28%", label: "reduction in task steps" },
+  { value: "2×", label: "faster decision-making" },
+  { value: "100%", label: "memory persistence" },
+],
+  url: "https://github.com/sahil1402", // update with real URL
+  featured: true,
+  highlight: true,
+  challenge: "Traditional LLM agents are stateless — they forget everything after each run, struggle with sequential decision-making, repeat bad actions, and can't learn from past interactions. Simple vector RAG fails on tasks with dependencies between actions and multi-hop reasoning requirements.",
+  solution: "Designed a Graph RAG architecture where each interaction is stored as nodes (states/entities) and edges (actions + outcomes). The agent retrieves past trajectories, prioritizes successful paths, avoids previously failed actions, and uses memory reinforcement to boost successful edges — transforming a reactive agent into a learning agent with structured memory. Added a browser UI with live graph visualization for explainability.",
+  keyDecisions: "Chose graphs over vector RAG because relationships matter more than similarity and graphs enable multi-hop reasoning. Simulated the environment first (not real browser automation) for faster iteration and cleaner architecture. Treated memory as a first-class component central to decision-making rather than optional. Added a visualization layer to improve explainability and make system behavior interpretable.",
+  learnings: "Graph structures outperform embeddings for sequential decision problems. Persistent memory is the key differentiator in agent systems. Building agents is less about LLMs and more about state management and decision policies. Visualization dramatically improves both debugging and storytelling. Iterative approach (CLI → Web → real browser) is far more effective than overbuilding upfront.",
+},
   {
     id: 1,
     title: "EinBioGPT",
@@ -56,9 +54,11 @@ const projects: Project[] = [
       "An intelligent web application built with Next.js, Tailwind CSS, and OpenAI's GPT models. Generates engaging and personalized bios for social media platforms.",
     tags: ["TypeScript", "Next.js", "GPT", "LangChain"],
     status: "shipped",
-    year: "2023",
-    stars: 17,
-    forks: 8,
+    impact: [
+      { value: "28%", label: "reduction in task steps" },
+      { value: "2×", label: "faster decision-making" },
+      { value: "100%", label: "memory persistence" },
+    ],
     url: "https://github.com/ehsanghaffar/einbiogpt",
     homepage: "https://bio.eindev.ir/",
     featured: true,
@@ -74,9 +74,11 @@ const projects: Project[] = [
       "A collection of JavaScript code snippets, algorithms, and mini-projects for learning and reference purposes.",
     tags: ["JavaScript", "Algorithms", "Snippets"],
     status: "shipped",
-    year: "2020",
-    stars: 19,
-    forks: 5,
+    impact: [
+      { value: "28%", label: "reduction in task steps" },
+      { value: "2×", label: "faster decision-making" },
+      { value: "100%", label: "memory persistence" },
+    ],
     url: "https://github.com/ehsanghaffar/javascript-playground",
     featured: false,
     challenge: "Learning JavaScript algorithms and patterns requires practical examples, but many resources are either too theoretical or lack real-world context.",
@@ -91,9 +93,11 @@ const projects: Project[] = [
       "A batteries-included starter for building Next.js 16.1.0 apps with App Router, PNPM, Tailwind v4+, Next-Auth v5, and multi-stage Docker setup.",
     tags: ["Next.js 16.1.0", "Docker", "Tailwind v4"],
     status: "in-progress",
-    year: "2025",
-    stars: 9,
-    forks: 4,
+    impact: [
+      { value: "28%", label: "reduction in task steps" },
+      { value: "2×", label: "faster decision-making" },
+      { value: "100%", label: "memory persistence" },
+    ],
     url: "https://github.com/ehsanghaffar/next16-docker-tw4-starter",
     homepage: "https://nextjs-16-docker.vercel.app",
     featured: true,
@@ -109,9 +113,11 @@ const projects: Project[] = [
       "A self-hosted personal chatbot API with FastAPI. Interact with Llama2 and other open-source LLMs for natural language conversations.",
     tags: ["Python", "FastAPI", "Llama2", "MCP"],
     status: "shipped",
-    year: "2023",
-    stars: 13,
-    forks: 3,
+    impact: [
+      { value: "28%", label: "reduction in task steps" },
+      { value: "2×", label: "faster decision-making" },
+      { value: "100%", label: "memory persistence" },
+    ],
     url: "https://github.com/ehsanghaffar/llm-practice",
     featured: false,
     challenge: "Running LLMs locally for development and testing often requires complex setup and significant computational resources.",
@@ -126,9 +132,11 @@ const projects: Project[] = [
       "A minimal, customizable Linux distribution built from scratch using the Linux kernel, BusyBox, and Syslinux bootloader.",
     tags: ["Shell", "Linux", "Docker"],
     status: "in-progress",
-    year: "2025",
-    stars: 8,
-    forks: 1,
+    impact: [
+      { value: "28%", label: "reduction in task steps" },
+      { value: "2×", label: "faster decision-making" },
+      { value: "100%", label: "memory persistence" },
+    ],
     url: "https://github.com/ehsanghaffar/handbuilt-linux",
     featured: true,
     challenge: "Understanding how Linux systems work at a fundamental level is difficult without hands-on experience building one from scratch.",
@@ -143,9 +151,11 @@ const projects: Project[] = [
       "An all-inclusive Next.js web application template showcasing seamless integration of Next.js, Docker, MongoDB, and Tailwind CSS.",
     tags: ["TypeScript", "Next.js", "Docker", "MongoDB"],
     status: "shipped",
-    year: "2023",
-    stars: 19,
-    forks: 6,
+    impact: [
+      { value: "28%", label: "reduction in task steps" },
+      { value: "2×", label: "faster decision-making" },
+      { value: "100%", label: "memory persistence" },
+    ],
     url: "https://github.com/ehsanghaffar/nextjs-appdir-docker",
     featured: false,
     challenge: "The Next.js App Router was new and developers needed practical examples of integrating it with databases and containerization.",
@@ -213,7 +223,6 @@ export function ProjectsGrid() {
                 </div>
               )}
 
-              {/* Status indicator */}
               <div
                 className={cn(
                   "absolute right-5 top-5 flex items-center gap-2.5",
@@ -230,14 +239,7 @@ export function ProjectsGrid() {
                 <span className="font-mono text-xs text-muted-foreground">{project.status}</span>
               </div>
 
-              <div
-                className={cn(
-                  "mb-5 font-mono text-xs text-muted-foreground",
-                  "highlight" in project && project.highlight && "mt-10",
-                )}
-              >
-                {project.year}
-              </div>
+              <div className={cn("highlight" in project && project.highlight && "mt-10")} />
 
               <h3
                 className={cn(
@@ -256,17 +258,6 @@ export function ProjectsGrid() {
               >
                 {project.description}
               </p>
-
-              <div className="mb-5 flex items-center gap-5 font-mono text-xs text-muted-foreground">
-                <span className="flex items-center gap-1.5 transition-colors group-hover:text-yellow-500">
-                  <Star className="h-3.5 w-3.5" />
-                  {project.stars}
-                </span>
-                <span className="flex items-center gap-1.5 transition-colors group-hover:text-foreground">
-                  <GitFork className="h-3.5 w-3.5" />
-                  {project.forks}
-                </span>
-              </div>
 
               <div className="mb-5 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
@@ -312,112 +303,160 @@ export function ProjectsGrid() {
 
       {/* Project Detail Modal */}
       <Dialog open={!!selectedProject} onOpenChange={(open) => !open && setSelectedProject(null)}>
-        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto bg-background backdrop-blur-xl border-border shadow-2xl">
+        <DialogContent className="max-w-4xl w-[90vw] max-h-[90vh] overflow-y-auto bg-background border-border shadow-2xl rounded-2xl p-0">
           {selectedProject && (
             <>
-              <DialogHeader className="flex flex-row items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/15 border border-primary/30">
-                  <Code2 className="h-6 w-6 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <DialogTitle className="text-xl font-bold">{selectedProject.title}</DialogTitle>
-                  <p className="font-mono text-sm text-muted-foreground mt-1">{selectedProject.year}</p>
-                </div>
-              </DialogHeader>
+              <DialogTitle className="sr-only">{selectedProject.title}</DialogTitle>
 
-              <div className="space-y-6 mt-4">
-                {/* Description */}
-                <p className="text-muted-foreground leading-relaxed">{selectedProject.description}</p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {selectedProject.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-md border border-primary/40 bg-primary/10 px-3 py-1.5 font-mono text-xs text-primary"
+              {/* Header */}
+              <div className="p-7 border-b border-border/40">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 border border-primary/30 font-mono text-sm text-primary font-semibold">
+                    <Code2 className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="text-xl font-semibold tracking-tight">{selectedProject.title}</h2>
+                    <div className="flex items-center gap-2 mt-1 flex-wrap" />
+                    <div className="flex gap-2 mt-3 flex-wrap">
+                      <span
+                        className={cn(
+                          "rounded-full border px-3 py-0.5 font-mono text-xs",
+                          selectedProject.status === "shipped"
+                            ? "border-primary/30 bg-primary/10 text-primary"
+                            : "border-yellow-500/30 bg-yellow-500/10 text-yellow-500"
+                        )}
+                      >
+                        {selectedProject.status}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex gap-2 flex-shrink-0">
+                    <a
+                      href={selectedProject.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-lg border border-border/50 hover:border-primary/40 hover:bg-muted/30 transition-all"
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      <Github className="w-4 h-4" />
+                    </a>
+                    {selectedProject.homepage && (
+                      <a
+                        href={selectedProject.homepage}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-lg border border-border/50 hover:border-primary/40 hover:bg-muted/30 transition-all"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
                 </div>
+              </div>
+
+              <div className="p-7 space-y-7">
+
+                {/* Overview */}
+                <div>
+                  <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-3">
+                    Overview
+                    <span className="flex-1 h-px bg-border/40" />
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{selectedProject.description}</p>
+                </div>
+
+                {/* Tech Stack */}
+                <div>
+                  <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-3">
+                    Tech Stack
+                    <span className="flex-1 h-px bg-border/40" />
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-lg border border-primary/30 bg-primary/10 px-3 py-1 font-mono text-xs text-primary transition-all duration-300 hover:bg-primary/20 hover:border-primary/60 hover:scale-105 cursor-default"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Impact */}
+{selectedProject.impact && (
+  <div>
+    <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-3">
+      Impact
+      <span className="flex-1 h-px bg-border/40" />
+    </p>
+    <div className="grid grid-cols-3 gap-3">
+      {selectedProject.impact.map((item, i) => (
+        <div key={i} className="rounded-xl bg-secondary/40 border border-border/40 p-3 text-center">
+          <div className="text-xl font-semibold font-mono text-primary">{item.value}</div>
+          <div className="text-xs text-muted-foreground mt-1 leading-snug">{item.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
 
                 {/* The Challenge */}
                 {selectedProject.challenge && (
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <div className="h-px w-8 bg-primary" />
-                      <h4 className="font-mono text-xs uppercase tracking-wider text-primary font-semibold">
-                        The Challenge
-                      </h4>
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed pl-11">
-                      {selectedProject.challenge}
+                  <div>
+                    <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-3">
+                      The Challenge
+                      <span className="flex-1 h-px bg-border/40" />
                     </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{selectedProject.challenge}</p>
                   </div>
                 )}
 
                 {/* The Solution */}
                 {selectedProject.solution && (
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <div className="h-px w-8 bg-primary" />
-                      <h4 className="font-mono text-xs uppercase tracking-wider text-primary font-semibold">
-                        The Solution
-                      </h4>
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed pl-11">
-                      {selectedProject.solution}
+                  <div>
+                    <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-3">
+                      The Solution
+                      <span className="flex-1 h-px bg-border/40" />
                     </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{selectedProject.solution}</p>
                   </div>
                 )}
 
                 {/* Key Decisions */}
                 {selectedProject.keyDecisions && (
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <div className="h-px w-8 bg-primary" />
-                      <h4 className="font-mono text-xs uppercase tracking-wider text-primary font-semibold">
-                        Key Decisions
-                      </h4>
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed pl-11">
-                      {selectedProject.keyDecisions}
+                  <div>
+                    <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-3">
+                      Key Decisions
+                      <span className="flex-1 h-px bg-border/40" />
                     </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{selectedProject.keyDecisions}</p>
                   </div>
                 )}
 
                 {/* Learnings */}
                 {selectedProject.learnings && (
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <div className="h-px w-8 bg-primary" />
-                      <h4 className="font-mono text-xs uppercase tracking-wider text-primary font-semibold">
-                        Learnings
-                      </h4>
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed pl-11">
-                      {selectedProject.learnings}
+                  <div>
+                    <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-3">
+                      Learnings
+                      <span className="flex-1 h-px bg-border/40" />
                     </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{selectedProject.learnings}</p>
                   </div>
                 )}
 
-                {/* Action Buttons */}
-                <div className="flex items-center gap-3 pt-4">
-                  {selectedProject.homepage && (
-                    <Button asChild className="gap-2">
-                      <a href={selectedProject.homepage} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-4 w-4" />
-                        View Live
-                      </a>
-                    </Button>
-                  )}
-                  <Button asChild variant="outline" className="gap-2 bg-transparent">
-                    <a href={selectedProject.url} target="_blank" rel="noopener noreferrer">
-                      <Github className="h-4 w-4" />
-                      Source Code
-                    </a>
-                  </Button>
-                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="px-7 py-4 border-t border-border/40 flex items-center justify-between">
+                <span className="font-mono text-xs text-muted-foreground">
+                  {projects.indexOf(selectedProject) + 1} of {projects.length} projects
+                </span>
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="text-xs text-muted-foreground hover:text-foreground transition-colors font-mono border border-border/60 rounded-lg px-4 py-1.5 hover:bg-secondary/50"
+                >
+                  Close
+                </button>
               </div>
             </>
           )}
