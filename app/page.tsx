@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
-import { LabNotes } from "@/components/lab-notes"
+import { WorkExperience } from "@/components/work-experience"
 import { ProjectsGrid } from "@/components/projects-grid"
 import { Workbench } from "@/components/workbench"
 import { Footer } from "@/components/footer"
@@ -41,7 +41,7 @@ export default function Home() {
         <div className="relative z-10">
           <Header />
           <HeroSection />
-          <LabNotes />
+          <WorkExperience />
           <ProjectsGrid />
           <Workbench />
           <Footer />
