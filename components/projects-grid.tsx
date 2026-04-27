@@ -16,7 +16,7 @@ interface Project {
   title: string
   description: string
   tags: string[]
-  status: "shipped" | "in-progress" | "archived"
+  status: "shipped" | "in-progress"
   year: string
   stars: number
   forks: number
@@ -103,24 +103,6 @@ const projects: Project[] = [
     learnings: "Container optimization can reduce image sizes by 70%+ and significantly improve deployment times in CI/CD pipelines.",
   },
   {
-    id: 4,
-    title: "Awesome Clubhouses",
-    description:
-      "Curated list of resources for Clubhouse, the voice-based social network where people come together to talk, listen and learn.",
-    tags: ["Python", "Awesome List", "Social"],
-    status: "archived",
-    year: "2022",
-    stars: 41,
-    forks: 8,
-    url: "https://github.com/ehsanghaffar/awesome-clubhouse",
-    homepage: "https://ehsanghaffar.github.io/awesome-clubhouse/",
-    featured: false,
-    challenge: "During Clubhouse's peak popularity, developers and users struggled to find reliable resources, tools, and unofficial APIs in one place.",
-    solution: "Created a comprehensive awesome-list aggregating tools, libraries, tutorials, and community resources for the Clubhouse platform.",
-    keyDecisions: "Followed the awesome-list format for discoverability. Added contribution guidelines. Implemented automated link checking to maintain quality.",
-    learnings: "Community-driven projects require clear contribution guidelines and active maintenance to stay relevant and useful.",
-  },
-  {
     id: 5,
     title: "LLM Practice",
     description:
@@ -173,7 +155,7 @@ const projects: Project[] = [
   },
 ]
 
-const filters = ["all", "shipped", "in-progress", "archived"]
+const filters = ["all", "shipped", "in-progress"]
 
 export function ProjectsGrid() {
   const [activeFilter, setActiveFilter] = useState("all")
@@ -243,7 +225,6 @@ export function ProjectsGrid() {
                     "h-2.5 w-2.5 rounded-full transition-shadow duration-300",
                     project.status === "shipped" && "bg-primary shadow-sm shadow-primary/50",
                     project.status === "in-progress" && "bg-yellow-500 animate-pulse shadow-sm shadow-yellow-500/50",
-                    project.status === "archived" && "bg-muted-foreground",
                   )}
                 />
                 <span className="font-mono text-xs text-muted-foreground">{project.status}</span>
