@@ -14,7 +14,7 @@ interface Project {
   title: string
   description: string
   tags: string[]
-  status: "shipped" | "in-progress"
+  status: "shipped" | "in-progress" | "brewing"
   impact?: { value: string; label: string }[]
   url: string
   homepage?: string
@@ -33,13 +33,13 @@ const projects: Project[] = [
   description:
     "A Graph-based RAG agent that executes multi-step browser tasks while learning from past interactions via a persistent knowledge graph — enabling multi-hop reasoning and continuous improvement without retraining.",
   tags: ["Python", "Graph RAG", "FastAPI", "HTML/CSS/JS", "JSON"],
-  status: "shipped",
+  status: "in-progress",
   impact: [
   { value: "28%", label: "reduction in task steps" },
   { value: "2×", label: "faster decision-making" },
   { value: "100%", label: "memory persistence" },
 ],
-  url: "https://github.com/sahil1402", // update with real URL
+  url: "https://github.com/sahil1402/Graph_Rag_Agent",
   featured: true,
   highlight: true,
   challenge: "Traditional LLM agents are stateless — they forget everything after each run, struggle with sequential decision-making, repeat bad actions, and can't learn from past interactions. Simple vector RAG fails on tasks with dependencies between actions and multi-hop reasoning requirements.",
@@ -53,7 +53,7 @@ const projects: Project[] = [
     description:
       "An intelligent web application built with Next.js, Tailwind CSS, and OpenAI's GPT models. Generates engaging and personalized bios for social media platforms.",
     tags: ["TypeScript", "Next.js", "GPT", "LangChain"],
-    status: "shipped",
+    status: "brewing",
     impact: [
       { value: "28%", label: "reduction in task steps" },
       { value: "2×", label: "faster decision-making" },
@@ -165,7 +165,7 @@ const projects: Project[] = [
   },
 ]
 
-const filters = ["all", "shipped", "in-progress"]
+const filters = ["all", "shipped", "in-progress", "brewing"]
 
 export function ProjectsGrid() {
   const [activeFilter, setActiveFilter] = useState("all")
@@ -234,6 +234,7 @@ export function ProjectsGrid() {
                     "h-2.5 w-2.5 rounded-full transition-shadow duration-300",
                     project.status === "shipped" && "bg-primary shadow-sm shadow-primary/50",
                     project.status === "in-progress" && "bg-yellow-500 animate-pulse shadow-sm shadow-yellow-500/50",
+                    project.status === "brewing" && "bg-purple-500 animate-pulse shadow-sm shadow-purple-500/50",
                   )}
                 />
                 <span className="font-mono text-xs text-muted-foreground">{project.status}</span>
@@ -323,7 +324,9 @@ export function ProjectsGrid() {
                           "rounded-full border px-3 py-0.5 font-mono text-xs",
                           selectedProject.status === "shipped"
                             ? "border-primary/30 bg-primary/10 text-primary"
-                            : "border-yellow-500/30 bg-yellow-500/10 text-yellow-500"
+                            : selectedProject.status === "in-progress"
+                              ? "border-blue-500/30 bg-blue-500/10 text-blue-500"
+                              : "border-purple-500/30 bg-purple-500/10 text-purple-500"
                         )}
                       >
                         {selectedProject.status}
@@ -353,7 +356,7 @@ export function ProjectsGrid() {
                 </div>
               </div>
 
-              <div className="p-7 space-y-7">
+              <div className="px-7 pb-7 pt-1 space-y-7">
 
                 {/* Overview */}
                 <div>
@@ -383,22 +386,22 @@ export function ProjectsGrid() {
                 </div>
 
                 {/* Impact */}
-{selectedProject.impact && (
-  <div>
-    <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-3">
-      Impact
-      <span className="flex-1 h-px bg-border/40" />
-    </p>
-    <div className="grid grid-cols-3 gap-3">
-      {selectedProject.impact.map((item, i) => (
-        <div key={i} className="rounded-xl bg-secondary/40 border border-border/40 p-3 text-center">
-          <div className="text-xl font-semibold font-mono text-primary">{item.value}</div>
-          <div className="text-xs text-muted-foreground mt-1 leading-snug">{item.label}</div>
+                {selectedProject.impact && (
+                <div>
+                  <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-3">
+                  Impact
+                  <span className="flex-1 h-px bg-border/40" />
+                  </p>
+                <div className="grid grid-cols-3 gap-3">
+                  {selectedProject.impact.map((item, i) => (
+                <div key={i} className="rounded-xl bg-secondary/40 border border-border/40 p-3 text-center">
+                <div className="text-xl font-semibold font-mono text-primary">{item.value}</div>
+                <div className="text-xs text-muted-foreground mt-1 leading-snug">{item.label}</div>
+              </div>
+          ))}
         </div>
-      ))}
-    </div>
-  </div>
-)}
+      </div>
+      )}
 
                 {/* The Challenge */}
                 {selectedProject.challenge && (
