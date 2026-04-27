@@ -301,19 +301,6 @@ export function WorkExperience() {
           </div>
         )}
       </div>
-
-      {/* Footer */}
-      <div className="px-7 py-4 border-t border-border/40 flex items-center justify-between">
-        <span className="font-mono text-xs text-muted-foreground">
-          {experiences.indexOf(selectedExp) + 1} of {experiences.length} experiences
-        </span>
-        <button
-          onClick={() => setSelectedExp(null)}
-          className="text-xs text-muted-foreground hover:text-foreground transition-colors font-mono border border-border/60 rounded-lg px-4 py-1.5 hover:bg-secondary/50"
-        >
-          Close
-        </button>
-      </div>
     </>
   )}
 </DialogContent>

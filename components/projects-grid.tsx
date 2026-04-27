@@ -68,24 +68,24 @@ const projects: Project[] = [
     learnings: "Prompt engineering is crucial for AI applications—small changes in prompts can dramatically affect output quality and consistency.",
   },
   {
-    id: 2,
-    title: "JavaScript Playground",
-    description:
-      "A collection of JavaScript code snippets, algorithms, and mini-projects for learning and reference purposes.",
-    tags: ["JavaScript", "Algorithms", "Snippets"],
-    status: "shipped",
-    impact: [
-      { value: "28%", label: "reduction in task steps" },
-      { value: "2×", label: "faster decision-making" },
-      { value: "100%", label: "memory persistence" },
-    ],
-    url: "https://github.com/ehsanghaffar/javascript-playground",
-    featured: false,
-    challenge: "Learning JavaScript algorithms and patterns requires practical examples, but many resources are either too theoretical or lack real-world context.",
-    solution: "Created a curated collection of JavaScript snippets covering data structures, algorithms, and common programming patterns with clear explanations and use cases.",
-    keyDecisions: "Organized content by difficulty level and category. Added comments explaining time/space complexity. Included unit tests for algorithm verification.",
-    learnings: "Teaching others is the best way to solidify your own understanding—documenting these patterns helped me master them.",
-  },
+  id: 2,
+  title: "YouTube Trending Analysis",
+  description:
+    "A scalable AWS data engineering pipeline that ingests, transforms, and analyzes structured and semi-structured YouTube trending data across regions — with a QuickSight dashboard for reporting.",
+  tags: ["Python", "PySpark", "AWS S3", "AWS Glue", "AWS Lambda", "AWS Athena", "QuickSight"],
+  status: "shipped",
+  impact: [
+    { value: "6+", label: "AWS services integrated" },
+    { value: "200", label: "trending videos/day per region" },
+    { value: "10", label: "regions analyzed" },
+  ],
+  url: "https://github.com/sahil1402/YouTube-Analysis-Data-Engineering-",
+  featured: false,
+  challenge: "YouTube trending data is semi-structured, multi-regional, and arrives in inconsistent formats (CSV + JSON). Processing it locally doesn't scale, and querying raw S3 data without proper ETL leads to slow, expensive analytics.",
+  solution: "Built a fully cloud-native pipeline on AWS — S3 as the data lake, AWS Glue for serverless ETL and schema cataloging, Lambda for event-driven transformation triggers, and Athena for interactive SQL queries directly on S3. QuickSight sits on top for BI dashboards.",
+  keyDecisions: "Chose AWS Glue over custom Spark clusters for serverless scalability. Used Athena to avoid loading data into a separate DB — queries run directly on S3 with no infrastructure. Separated raw and processed zones in S3 for clean data lineage. Lambda triggers kept the pipeline event-driven rather than scheduled.",
+  learnings: "Serverless data pipelines dramatically reduce ops overhead — no cluster management, pay-per-query with Athena. Separating raw and curated S3 zones early saves enormous pain later. Schema evolution is the hardest problem in data engineering — AWS Glue crawlers help but require careful partition design.",
+},
   {
     id: 3,
     title: "Next.js 16 Docker Starter",
@@ -447,19 +447,6 @@ export function ProjectsGrid() {
                   </div>
                 )}
 
-              </div>
-
-              {/* Footer */}
-              <div className="px-7 py-4 border-t border-border/40 flex items-center justify-between">
-                <span className="font-mono text-xs text-muted-foreground">
-                  {projects.indexOf(selectedProject) + 1} of {projects.length} projects
-                </span>
-                <button
-                  onClick={() => setSelectedProject(null)}
-                  className="text-xs text-muted-foreground hover:text-foreground transition-colors font-mono border border-border/60 rounded-lg px-4 py-1.5 hover:bg-secondary/50"
-                >
-                  Close
-                </button>
               </div>
             </>
           )}
