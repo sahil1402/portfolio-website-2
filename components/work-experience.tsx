@@ -210,7 +210,7 @@ export function WorkExperience() {
 
       {/* Experience Detail Modal */}
       <Dialog open={!!selectedExp} onOpenChange={(open) => !open && setSelectedExp(null)}>
-        <DialogContent className="max-w-4xl w-[90vw] max-h-[90vh] overflow-y-auto bg-background border-border shadow-2xl rounded-2xl p-0">
+        <DialogContent className="max-h-[90vh] overflow-y-auto bg-background border-border shadow-2xl rounded-2xl p-0" style={{ width: "clamp(320px, 88vw, 1000px)", maxWidth: "1000px" }}>
   {selectedExp && (
     <>
       {/* Header */}

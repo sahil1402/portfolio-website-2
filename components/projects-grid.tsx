@@ -304,7 +304,7 @@ export function ProjectsGrid() {
 
       {/* Project Detail Modal */}
       <Dialog open={!!selectedProject} onOpenChange={(open) => !open && setSelectedProject(null)}>
-        <DialogContent className="max-w-4xl w-[90vw] max-h-[90vh] overflow-y-auto bg-background border-border shadow-2xl rounded-2xl p-0">
+<DialogContent className="max-h-[90vh] overflow-y-auto bg-background border-border shadow-2xl rounded-2xl p-0" style={{ width: "clamp(320px, 88vw, 1000px)", maxWidth: "1000px" }}>
           {selectedProject && (
             <>
               <DialogTitle className="sr-only">{selectedProject.title}</DialogTitle>
@@ -333,7 +333,7 @@ export function ProjectsGrid() {
                       </span>
                     </div>
                   </div>
-                  <div className="flex gap-2 flex-shrink-0">
+                  <div className="flex gap-2 flex-shrink-0 mr-8">
                     <a
                       href={selectedProject.url}
                       target="_blank"
