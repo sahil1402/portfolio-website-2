@@ -195,27 +195,56 @@ const experiences: Experience[] = [
     { value: "2/3", label: "chapters upgraded to next level" },
   ],
 },
-  {
-    id: 8,
-    role: "— Role —",
-    company: "AIS",
-    duration: "— Duration —",
-    type: "volunteer",
-    location: "— Location —",
-    category: "ventures",
-    summary: "— Add your AIS summary here —",
-    description: "— Add your AIS description here —",
-    achievements: [
-      "— Add achievement 1 —",
-      "— Add achievement 2 —",
-      "— Add achievement 3 —",
-    ],
-    impact: [
-      { value: "—", label: "placeholder" },
-      { value: "—", label: "placeholder" },
-      { value: "—", label: "placeholder" },
-    ],
-  },
+
+{
+  id: 8,
+  role: "Co-Founder",
+  company: "Veritas Designer",
+  duration: "2019 - Present",
+  type: "full-time",
+  location: "India",
+  category: "ventures",
+  summary: "Built a 3D printing startup from a single self-assembled printer in a friend's room to an 11-printer operation — serving real estate, mobile accessories, and commercial clients with end-to-end 3D modeling and fabrication.",
+  description: "Veritas Designer started with zero capital infrastructure — I assembled the first printer by hand in a friend's room, learned the hardware inside-out, and figured out the business as it grew. Today we run 11 printers serving real estate developers who need 3D models of projects for client presentations and office bookings, mobile accessories clients, and a growing pipeline of commercial use cases. Every client, every printer, and every workflow was built from scratch.",
+  achievements: [
+    "Founded and scaled Veritas Designer from a single self-assembled FDM printer to an 11-printer production operation — zero external funding, fully bootstrapped",
+    "Acquired and retained real estate clients for architectural 3D modeling — producing physical project models used in client presentations, office space bookings, and property showcases",
+    "Expanded into mobile accessories manufacturing, diversifying the client base beyond architecture into consumer product verticals",
+    "Managed end-to-end operations — hardware maintenance, material procurement, client scoping, print workflow optimization, and delivery — across all 11 machines",
+    "Built repeatable client acquisition and project scoping workflows, turning a hobby-scale setup into a revenue-generating multi-vertical business",
+    "Developed hands-on expertise in FDM printing, slicing software, material selection, and post-processing across diverse client requirements",
+  ],
+  impact: [
+    { value: "11", label: "printers in operation" },
+    { value: "3+", label: "services: design, print, consult" },
+    { value: "2+", label: "industry verticals served" },
+  ],
+},
+
+{
+  id: 9,
+  role: "Co-Founder",
+  company: "Serenity & Co.",
+  duration: "2022",
+  type: "full-time",
+  location: "India",
+  category: "ventures",
+  summary: "Founded a scented candle brand from scratch — handled product development, branding, and direct-to-consumer sales across online and offline channels.",
+  description: "Serenity & Co. was a bootstrapped scented candle startup built from the ground up — from sourcing raw materials and developing scent profiles to designing packaging and acquiring customers. I owned every function: product, brand, operations, and sales. The goal was to build a premium-feel DTC brand on zero budget.",
+  achievements: [
+    "Founded and launched Serenity & Co. from scratch — developed product line, brand identity, and packaging with zero external funding",
+    "Sourced and tested raw materials including wax blends, fragrance oils, and wicks to develop consistent, high-quality scent profiles",
+    "Built direct-to-consumer sales across online and offline channels, acquiring first customers through organic outreach and word-of-mouth",
+    "Managed end-to-end operations — procurement, production, packaging, fulfillment, and customer communication — as a solo founder",
+    "Designed brand identity and marketing creatives to position Serenity & Co. as a premium lifestyle product in a crowded market",
+  ],
+  impact: [
+    { value: "150+", label: "units production capacity per batch" },
+    { value: "11", label: "long-term clients retained" },
+    { value: "20+", label: "scent varieties developed" },
+  ],
+},
+
 ]
 
 type FilterType = "technical" | "ventures"
