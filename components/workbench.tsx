@@ -161,24 +161,40 @@ export function Workbench() {
               <div className="flex items-start gap-3">
                 <span className="text-primary font-mono">&gt;</span>
                 <div className="min-w-0">
-                  <div className="font-mono text-sm font-medium">Multi-agent systems</div>
-                  <p className="text-xs text-muted-foreground">LangGraph stateful agents, tool-calling patterns, memory architectures</p>
+                  <div className="font-mono text-sm font-medium">Agentic memory architectures</div>
+                  <p className="text-xs text-muted-foreground">episodic vs semantic memory, MemGPT patterns, long-horizon task persistence</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
                 <span className="text-primary font-mono">&gt;</span>
                 <div className="min-w-0">
-                  <div className="font-mono text-sm font-medium">LLM fine-tuning</div>
-                  <p className="text-xs text-muted-foreground">LoRA, QLoRA, RLHF, instruction tuning on domain-specific data</p>
+                  <div className="font-mono text-sm font-medium">Synthetic data engineering</div>
+                  <p className="text-xs text-muted-foreground">self-instruct pipelines, data flywheels, quality filtering for SFT datasets</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
                 <span className="text-primary font-mono">&gt;</span>
                 <div className="min-w-0">
-                  <div className="font-mono text-sm font-medium">Distributed MLOps</div>
-                  <p className="text-xs text-muted-foreground">Kubernetes, Kubeflow, model serving at scale</p>
+                  <div className="font-mono text-sm font-medium">Retrieval system optimization</div>
+                  <p className="text-xs text-muted-foreground">hybrid search, re-ranking, HNSW index tuning, late interaction models (ColBERT)</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <span className="text-primary font-mono">&gt;</span>
+                <div className="min-w-0">
+                  <div className="font-mono text-sm font-medium">Inference optimization</div>
+                  <p className="text-xs text-muted-foreground">KV cache management, speculative decoding, quantization-aware fine-tuning (GPTQ, AWQ)</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <span className="text-primary font-mono">&gt;</span>
+                <div className="min-w-0">
+                  <div className="font-mono text-sm font-medium">Constitutional AI & alignment techniques</div>
+                  <p className="text-xs text-muted-foreground">RLAIF, reward modeling, preference datasets, DPO vs PPO tradeoffs</p>
                 </div>
               </div>
             </div>

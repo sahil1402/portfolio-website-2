@@ -35,13 +35,32 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
     setIcons(getRandomIcons(6))
   }, [])
 
+  // If the loader has already been shown this session, skip it immediately
+  useEffect(() => {
+    try {
+      const seen = sessionStorage.getItem("hasSeenLoader")
+      if (seen) {
+        onComplete()
+      }
+    } catch (e) {
+      // ignore sessionStorage errors
+    }
+  }, [onComplete])
+
 // Progress bar - 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval)
-          setTimeout(onComplete, 200)
+          setTimeout(() => {
+            try {
+              sessionStorage.setItem("hasSeenLoader", "true")
+            } catch (e) {
+              // ignore
+            }
+            onComplete()
+          }, 200)
           return 100
         }
         return prev + 4
