@@ -4,47 +4,79 @@ import { Github, ExternalLink } from "lucide-react"
 const wipItems = [
   {
     id: 1,
-    name: "next16-docker-tw4-starter",
-    description: "Next.js 16 starter with App Router, Tailwind v4, Next-Auth v5, and Docker",
+    name: "Python",
+    description: "Expert — NumPy, Pandas, asyncio, packaging",
     progress: 85,
-    lastUpdated: "Dec 2024",
-    url: "https://github.com/ehsanghaffar/next16-docker-tw4-starter",
+    lastUpdated: "Expert",
+    url: "#",
   },
   {
     id: 2,
-    name: "handbuilt-linux",
-    description: "Minimal Linux distro from scratch with BusyBox and Syslinux bootloader",
-    progress: 60,
-    lastUpdated: "Nov 2025",
-    url: "https://github.com/ehsanghaffar/handbuilt-linux",
+    name: "ML / DL Modeling",
+    description: "Expert — PyTorch, scikit-learn, XGBoost, model evaluation",
+    progress: 85,
+    lastUpdated: "Expert",
+    url: "#",
   },
   {
     id: 3,
-    name: "einbiogpt",
-    description: "AI-powered social media bio generator with MCP integration",
-    progress: 90,
-    lastUpdated: "Apr 2025",
-    url: "https://github.com/ehsanghaffar/einbiogpt",
+    name: "LLM Engineering",
+    description: "Expert — RAG pipelines, prompt engineering, LangChain, LangGraph",
+    progress: 85,
+    lastUpdated: "Expert",
+    url: "#",
   },
   {
     id: 4,
-    name: "llm-practice",
-    description: "Self-hosted chatbot API with RAG and MCP protocol support",
-    progress: 75,
-    lastUpdated: "Apr 2025",
-    url: "https://github.com/ehsanghaffar/llm-practice",
+    name: "FastAPI / Backend Systems",
+    description: "Proficient — async APIs, Celery, Redis, WebSockets",
+    progress: 65,
+    lastUpdated: "Proficient",
+    url: "#",
+  },
+  {
+    id: 5,
+    name: "Data Engineering",
+    description: "Proficient — AWS Glue, S3, Athena, pipeline orchestration",
+    progress: 65,
+    lastUpdated: "Proficient",
+    url: "#",
+  },
+  {
+    id: 6,
+    name: "Full Stack",
+    description: "Proficient — Next.js 14, TypeScript, Tailwind, Supabase",
+    progress: 65,
+    lastUpdated: "Proficient",
+    url: "#",
+  },
+  {
+    id: 7,
+    name: "MLOps / Infra",
+    description: "Proficient — Docker, GitHub Actions, CI/CD, Vercel",
+    progress: 65,
+    lastUpdated: "Proficient",
+    url: "#",
+  },
+  {
+    id: 8,
+    name: "Vector Search & Graphs",
+    description: "Proficient — pgvector, Neo4j, Graph RAG, embeddings",
+    progress: 45,
+    lastUpdated: "Proficient",
+    url: "#",
   },
 ]
 
 export function Workbench() {
   return (
-    <section id="workbench" className="px-4 sm:px-6 py-20 sm:py-28 border-t border-border/30">
+    <section id="arsenal" className="px-4 sm:px-6 py-20 sm:py-28 border-t border-border/30">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 sm:mb-14 space-y-3 animate-fade-in-up">
           <p className="font-mono text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-primary">
-            Work in Progress
+            TOOLS & CRAFT
           </p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Workbench</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Arsenal</h2>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
             Active experiments and prototypes. Things that are being built, broken, and rebuilt.
           </p>
@@ -58,7 +90,7 @@ export function Workbench() {
               <div className="h-3 w-3 rounded-full bg-yellow-500/60 transition-colors hover:bg-yellow-500 cursor-pointer" />
               <div className="h-3 w-3 rounded-full bg-primary/60 transition-colors hover:bg-primary cursor-pointer" />
             </div>
-            <span className="ml-4 font-mono text-xs text-muted-foreground truncate">~/ehsanghaffar/active</span>
+            <span className="ml-4 font-mono text-xs text-muted-foreground truncate">~/sahil/arsenal</span>
             <div className="ml-auto hidden sm:flex items-center gap-2 text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
               <span className="font-mono text-xs">live</span>
@@ -118,6 +150,38 @@ export function Workbench() {
                 </div>
               </a>
             ))}
+          </div>
+
+          <div className="border-t border-border/50 bg-secondary/30 px-4 sm:px-5 py-4">
+            <div className="mb-3">
+              <div className="font-mono text-xs text-primary/60">// currently exploring</div>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-primary font-mono">&gt;</span>
+                <div className="min-w-0">
+                  <div className="font-mono text-sm font-medium">Multi-agent systems</div>
+                  <p className="text-xs text-muted-foreground">LangGraph stateful agents, tool-calling patterns, memory architectures</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <span className="text-primary font-mono">&gt;</span>
+                <div className="min-w-0">
+                  <div className="font-mono text-sm font-medium">LLM fine-tuning</div>
+                  <p className="text-xs text-muted-foreground">LoRA, QLoRA, RLHF, instruction tuning on domain-specific data</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <span className="text-primary font-mono">&gt;</span>
+                <div className="min-w-0">
+                  <div className="font-mono text-sm font-medium">Distributed MLOps</div>
+                  <p className="text-xs text-muted-foreground">Kubernetes, Kubeflow, model serving at scale</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="border-t border-border/50 bg-secondary/30 px-4 sm:px-5 py-4">

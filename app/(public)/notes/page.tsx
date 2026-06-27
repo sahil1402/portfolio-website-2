@@ -2,7 +2,7 @@ import { NotesPageContent } from "@/components/public/notes/notes-page-content";
 
 export const metadata = {
   title: "Lab Notes | EinCode",
-  description: "Technical findings, observations, and thoughts from the workbench.",
+  description: "Technical findings, observations, and thoughts from the arsenal.",
 };
 
 export default function NotesPage() {

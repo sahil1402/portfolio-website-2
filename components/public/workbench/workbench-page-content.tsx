@@ -78,9 +78,9 @@ export function WorkbenchPageContent() {
         {/* Hero */}
         <div className={cn("mb-12 sm:mb-16 space-y-4 opacity-0", isVisible && "animate-fade-in-up")}>
           <p className="font-mono text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-primary">
-            Work in Progress
+            TOOLS & CRAFT
           </p>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">Workbench</h1>
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">Arsenal</h1>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
             Active experiments and prototypes. Things that are being built, broken, and rebuilt. Real-time progress on
             ongoing projects.

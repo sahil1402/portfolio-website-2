@@ -7,7 +7,7 @@ export default function Loading() {
         <div className="h-6 w-96 bg-muted animate-pulse rounded" />
       </div>
 
-      {/* Workbench items skeleton */}
+      {/* Arsenal items skeleton */}
       <div className="space-y-8">
         {[...Array(4)].map((_, i) => (
           <div

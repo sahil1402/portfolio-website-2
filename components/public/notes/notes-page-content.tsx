@@ -117,7 +117,7 @@ export function NotesPageContent() {
           <p className="font-mono text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-primary">Field Notes</p>
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">Lab Notes</h1>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Brief observations, technical findings, and thoughts from the workbench. Documentation of the learning
+            Brief observations, technical findings, and thoughts from the arsenal. Documentation of the learning
             journey.
           </p>
         </div>

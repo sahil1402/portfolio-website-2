@@ -8,7 +8,7 @@ This directory should contain Open Graph images for social media sharing.
 - `og-image.png` - Homepage
 - `og-image-blog.png` - Blog list page
 - `og-image-projects.png` - Projects page
-- `og-image-workbench.png` - Workbench page
+- `og-image-workbench.png` - Arsenal page
 
 ### Dynamic Blog Posts (1200x630px)
 Each blog post should have an OG image named after its slug:

@@ -88,7 +88,7 @@ export default function IntroductionPage() {
               },
               {
                 icon: Layers,
-                title: "Developer Workbench",
+                title: "Developer Arsenal",
                 description:
                   "A dedicated space for ongoing experiments and prototypes. Watch ideas evolve from concept to implementation.",
               },
