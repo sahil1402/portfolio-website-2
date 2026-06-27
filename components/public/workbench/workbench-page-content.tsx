@@ -2,67 +2,98 @@
 
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
-import { Github, ExternalLink, Clock, GitBranch, Activity } from "lucide-react"
+import { Github, ExternalLink, GitBranch, Activity } from "lucide-react"
 
 const wipItems = [
   {
     id: 1,
-    name: "next16-docker-tw4-starter",
-    description: "Next.js 16 starter with App Router, Tailwind v4, Next-Auth v5, and Docker",
+    name: "Python",
+    description: "Expert — NumPy, Pandas, asyncio, packaging",
     progress: 85,
-    lastUpdated: "Dec 2024",
-    url: "https://github.com/ehsanghaffar/next16-docker-tw4-starter",
-    branch: "main",
-    commits: 47,
+    lastUpdated: "Expert",
+    url: "#",
+    branch: "Expert",
+    commits: 0,
   },
   {
     id: 2,
-    name: "handbuilt-linux",
-    description: "Minimal Linux distro from scratch with BusyBox and Syslinux bootloader",
-    progress: 60,
-    lastUpdated: "Nov 2025",
-    url: "https://github.com/ehsanghaffar/handbuilt-linux",
-    branch: "develop",
-    commits: 32,
+    name: "ML / DL Modeling",
+    description: "Expert — PyTorch, scikit-learn, XGBoost, model evaluation",
+    progress: 85,
+    lastUpdated: "Expert",
+    url: "#",
+    branch: "Expert",
+    commits: 0,
   },
   {
     id: 3,
-    name: "einbiogpt",
-    description: "AI-powered social media bio generator with MCP integration",
-    progress: 90,
-    lastUpdated: "Apr 2025",
-    url: "https://github.com/ehsanghaffar/einbiogpt",
-    branch: "main",
-    commits: 89,
+    name: "LLM Engineering",
+    description: "Expert — RAG pipelines, prompt engineering, LangChain, LangGraph",
+    progress: 85,
+    lastUpdated: "Expert",
+    url: "#",
+    branch: "Expert",
+    commits: 0,
   },
   {
     id: 4,
-    name: "llm-practice",
-    description: "Self-hosted chatbot API with RAG and MCP protocol support",
-    progress: 75,
-    lastUpdated: "Apr 2025",
-    url: "https://github.com/ehsanghaffar/llm-practice",
-    branch: "feature/mcp",
-    commits: 56,
+    name: "FastAPI / Backend Systems",
+    description: "Proficient — async APIs, Celery, Redis, WebSockets",
+    progress: 70,
+    lastUpdated: "Proficient",
+    url: "#",
+    branch: "Proficient",
+    commits: 0,
   },
   {
     id: 5,
-    name: "einui",
-    description: "Liquid Glass UI components library built on Tailwind and shadcn/ui",
-    progress: 45,
-    lastUpdated: "Dec 2024",
-    url: "https://github.com/ehsanghaffar/einui",
-    branch: "main",
-    commits: 28,
+    name: "Data Engineering",
+    description: "Proficient — AWS Glue, S3, Athena, pipeline orchestration",
+    progress: 70,
+    lastUpdated: "Proficient",
+    url: "#",
+    branch: "Proficient",
+    commits: 0,
+  },
+  {
+    id: 6,
+    name: "Full Stack",
+    description: "Proficient — Next.js 14, TypeScript, Tailwind, Supabase",
+    progress: 70,
+    lastUpdated: "Proficient",
+    url: "#",
+    branch: "Proficient",
+    commits: 0,
+  },
+  {
+    id: 7,
+    name: "MLOps / Infra",
+    description: "Proficient — Docker, GitHub Actions, CI/CD, Vercel",
+    progress: 70,
+    lastUpdated: "Proficient",
+    url: "#",
+    branch: "Proficient",
+    commits: 0,
+  },
+  {
+    id: 8,
+    name: "Vector Search & Graphs",
+    description: "Proficient — pgvector, Neo4j, Graph RAG, embeddings",
+    progress: 70,
+    lastUpdated: "Proficient",
+    url: "#",
+    branch: "Proficient",
+    commits: 0,
   },
 ]
 
-const recentActivity = [
-  { type: "commit", project: "einui", message: "Add new Button variants", time: "2 hours ago" },
-  { type: "branch", project: "llm-practice", message: "Created feature/mcp branch", time: "5 hours ago" },
-  { type: "commit", project: "einbiogpt", message: "Implement MCP protocol handlers", time: "1 day ago" },
-  { type: "commit", project: "handbuilt-linux", message: "Update kernel config", time: "2 days ago" },
-]
+  const exploringItems = [
+    { title: "Agentic memory architectures", subtitle: "episodic vs semantic memory, MemGPT patterns, long-horizon task persistence" },
+    { title: "Synthetic data engineering", subtitle: "self-instruct pipelines, data flywheels, quality filtering for SFT datasets" },
+    { title: "Retrieval system optimization", subtitle: "hybrid search, re-ranking, HNSW index tuning, late interaction models (ColBERT)" },
+    { title: "Inference optimization", subtitle: "KV cache management, speculative decoding, quantization-aware fine-tuning (GPTQ, AWQ)" },
+    { title: "Constitutional AI & alignment", subtitle: "RLAIF, reward modeling, preference datasets, DPO vs PPO tradeoffs" },
+  ]
 
 export function WorkbenchPageContent() {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null)
@@ -82,8 +113,7 @@ export function WorkbenchPageContent() {
           </p>
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">Arsenal</h1>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Active experiments and prototypes. Things that are being built, broken, and rebuilt. Real-time progress on
-            ongoing projects.
+            Skills, tools, and technologies I've built expertise in — and what I'm actively exploring at the frontier.
           </p>
         </div>
 
@@ -103,7 +133,7 @@ export function WorkbenchPageContent() {
                   <div className="h-3 w-3 rounded-full bg-yellow-500/60 transition-colors hover:bg-yellow-500 cursor-pointer" />
                   <div className="h-3 w-3 rounded-full bg-primary/60 transition-colors hover:bg-primary cursor-pointer" />
                 </div>
-                <span className="ml-4 font-mono text-xs text-muted-foreground truncate">~/ehsanghaffar/active</span>
+                <span className="ml-4 font-mono text-xs text-muted-foreground truncate">~/sahil/arsenal</span>
                 <div className="ml-auto flex items-center gap-2 text-muted-foreground">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
                   <span className="font-mono text-xs">live</span>
@@ -194,29 +224,80 @@ export function WorkbenchPageContent() {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Stats */}
+            {/* SYSTEM STATUS */}
             <div
               className={cn(
                 "rounded-xl border border-border bg-card/40 glass p-5 opacity-0",
                 isVisible && "animate-fade-in-up stagger-3",
               )}
             >
-              <h3 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">Stats</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-3 rounded-lg bg-secondary/30">
-                  <p className="text-2xl font-bold text-foreground">{wipItems.length}</p>
-                  <p className="font-mono text-xs text-muted-foreground">Active</p>
+              <h3 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">SYSTEM STATUS</h3>
+              <div className="divide-y divide-border/30">
+                <div className="flex items-center justify-between py-3">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-sm text-[#2dd4bf]">&gt;</span>
+                    <span className="text-sm text-muted-foreground">Mode</span>
+                  </div>
+                  <div className="text-sm text-foreground">Deep Work</div>
                 </div>
-                <div className="text-center p-3 rounded-lg bg-secondary/30">
-                  <p className="text-2xl font-bold text-primary">
-                    {Math.round(wipItems.reduce((a, b) => a + b.progress, 0) / wipItems.length)}%
-                  </p>
-                  <p className="font-mono text-xs text-muted-foreground">Avg Progress</p>
+
+                <div className="flex items-center justify-between py-3">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-sm text-[#2dd4bf]">→</span>
+                    <span className="text-sm text-muted-foreground">Obsessing over</span>
+                  </div>
+                  <div className="text-sm text-foreground">Emergent tool-use in LLM agents</div>
+                </div>
+
+                <div className="flex items-center justify-between py-3">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-sm text-[#2dd4bf]">⎇</span>
+                    <span className="text-sm text-muted-foreground">Building</span>
+                  </div>
+                  <div className="text-sm text-foreground">AgentForge &amp; JobPulse AI</div>
+                </div>
+
+                <div className="flex items-center justify-between py-3">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-sm text-[#2dd4bf]">✦</span>
+                    <span className="text-sm text-muted-foreground">Goal</span>
+                  </div>
+                  <div className="text-sm text-foreground">Build systems that outlive the hype cycle</div>
+                </div>
+
+                <div className="flex items-center justify-between py-3">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-sm text-[#2dd4bf]">%</span>
+                    <span className="text-sm text-muted-foreground">Fuel</span>
+                  </div>
+                  <div className="text-sm text-foreground">Caffeine &amp; context windows</div>
                 </div>
               </div>
             </div>
 
-            {/* Recent Activity */}
+              {/* STATS (compact) */}
+              <div
+                className={cn(
+                  "rounded-xl border border-border bg-card/40 glass p-5 opacity-0",
+                  isVisible && "animate-fade-in-up stagger-4",
+                )}
+              >
+                <h3 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">STATS</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center p-3 rounded-lg bg-secondary/30">
+                    <p className="text-2xl font-bold text-[#2dd4bf]">404</p>
+                    <p className="text-xs text-muted-foreground">Sleep hours</p>
+                    <p className="text-xs text-muted-foreground">lost to debugging</p>
+                  </div>
+                  <div className="text-center p-3 rounded-lg bg-secondary/30">
+                    <p className="text-2xl font-bold text-[#2dd4bf]">∞</p>
+                    <p className="text-xs text-muted-foreground">Attention span</p>
+                    <p className="text-xs text-muted-foreground">when in flow</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Recent Activity */}
             <div
               className={cn(
                 "rounded-xl border border-border bg-card/40 glass p-5 opacity-0",
@@ -225,23 +306,15 @@ export function WorkbenchPageContent() {
             >
               <h3 className="font-mono text-xs uppercase tracking-wider text-primary mb-4 flex items-center gap-2">
                 <Activity className="h-3.5 w-3.5" />
-                Recent Activity
+                // CURRENTLY EXPLORING
               </h3>
               <div className="space-y-3">
-                {recentActivity.map((activity, index) => (
-                  <div key={index} className="flex items-start gap-3 text-xs">
-                    <span
-                      className={cn(
-                        "shrink-0 w-1.5 h-1.5 rounded-full mt-1.5",
-                        activity.type === "commit" ? "bg-primary" : "bg-yellow-500",
-                      )}
-                    />
+                {exploringItems.map((it, idx) => (
+                  <div key={idx} className="flex items-start gap-3 text-xs">
+                    <span className="shrink-0 w-1.5 h-1.5 rounded-full mt-1.5 bg-primary" />
                     <div className="min-w-0 flex-1">
-                      <p className="text-foreground truncate">{activity.message}</p>
-                      <p className="text-muted-foreground flex items-center gap-1">
-                        <Clock className="h-3 w-3" />
-                        {activity.time}
-                      </p>
+                      <p className="text-foreground truncate font-medium">{it.title}</p>
+                      <p className="text-muted-foreground text-[13px]">{it.subtitle}</p>
                     </div>
                   </div>
                 ))}

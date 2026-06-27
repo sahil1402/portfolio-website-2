@@ -17,7 +17,7 @@ export default function Home() {
   
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sahildev.vercel.app'
   const websiteStructuredData = generateWebsiteStructuredData(baseUrl)
-  const personStructuredData = generatePersonStructuredData()
+  const personStructuredData = generatePersonStructuredData() 
 
   return (
     <>
