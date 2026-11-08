@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
+import { siteUrl } from "@/lib/site"
 import "./globals.css"
 
 // Configure fonts with proper options
@@ -23,10 +24,10 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://sahildev.ir'),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "SAHILDEV — Sahil Satasiya's Digital Laboratory",
-    template: "%s | SahilCODE",
+    template: "%s | SAHILDEV",
   },
   description:
     "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Sahil Satasiya.",
@@ -34,7 +35,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Sahil Satasiya", url: "https://github.com/sahil1402" }],
   creator: "Sahil Satasiya",
   publisher: "Sahil Satasiya",
-  generator: "v0.app",
   openGraph: {
     type: "website",
     locale: "en_US",

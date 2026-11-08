@@ -1,17 +1,16 @@
 {
-  "name": "code-forge",
+  "name": "sahildev",
   "version": "0.1.0",
   "private": true,
-  "description": "A modern code editor built with Next.js and Radix UI.",
+  "description": "Personal portfolio of Sahil Satasiya: work, projects, and tools.",
   "keywords": [
+    "portfolio",
     "nextjs",
-    "radix-ui",
-    "code editor",
     "react",
     "typescript",
     "tailwindcss"
   ],
-  "author": "Ehsan Ghaffar",
+  "author": "Sahil Satasiya",
   "scripts": {
     "analyze": "next experimental-analyze",
     "build": "next build",

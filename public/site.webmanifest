@@ -1,11 +1,11 @@
 {
-  "name": "EINCODE — Ehsan Ghaffar's Digital Laboratory",
-  "short_name": "EINCODE",
-  "description": "A digital workshop where code meets curiosity. Experiments, prototypes, and open-source artifacts by Ehsan Ghaffar.",
+  "name": "SAHILDEV — Sahil Satasiya",
+  "short_name": "SAHILDEV",
+  "description": "Portfolio of Sahil Satasiya: software, ML and AI engineer in Los Angeles.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#0ea5e9",
+  "background_color": "#060a0b",
+  "theme_color": "#2dd4bf",
   "icons": [
     {
       "src": "/icon-light-32x32.png",

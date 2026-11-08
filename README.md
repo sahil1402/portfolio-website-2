@@ -6,12 +6,11 @@ Version: `1.0.0`
 
 ## About
 
-SAHILDEV is a personal portfolio website for Sahil Satasiya — an AI/ML Engineer and MS Computer Science student at USC. The site showcases work experience, projects, skills, and features an AI-powered chatbot assistant.
+SAHILDEV is a personal portfolio website for Sahil Satasiya — an AI/ML Engineer and MS Computer Science student at USC. The site showcases work experience, projects, and skills.
 
 ### Key Features
 
 - **Modern Stack** — Next.js 16, React 19, TypeScript, Tailwind CSS
-- **AI Chatbot** — Voice & text enabled assistant that answers questions about Sahil
 - **Animated Loading Screen** — Pulse grid animation with rotating tech icons
 - **Floating Tech Icons** — Interactive hero section with floating technology logos
 - **Work Experience** — Detailed career timeline with expandable details
