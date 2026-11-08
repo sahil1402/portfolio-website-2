@@ -62,24 +62,25 @@ pnpm start
 
 ## Project Structure
 ```
-├── app/                    # Next.js App Router pages and layout
-│   ├── layout.tsx          # Root layout with metadata
-│   ├── page.tsx            # Homepage
-│   └── globals.css         # Global styles
-├── components/             # React components
-│   ├── ai-chatbot.tsx      # AI assistant chatbot
-│   ├── animated-avatar.tsx # Floating tech icons
-│   ├── header.tsx          # Navigation header
-│   ├── hero-section.tsx    # Hero section
-│   ├── lab-notes.tsx       # Work experience section
-│   ├── loading-screen.tsx  # Animated loading screen
-│   ├── projects-grid.tsx   # Projects showcase
-│   ├── footer.tsx          # Site footer
-│   └── ui/                 # Reusable UI primitives
-├── lib/                    # Utilities and helpers
-├── public/                 # Static assets
-├── styles/                 # Additional styles
-└── types/                  # TypeScript type definitions
+├── app/                       # Next.js App Router
+│   ├── layout.tsx             # Root layout with metadata
+│   ├── page.tsx               # Homepage
+│   ├── (public)/              # /introduction, /projects, /workbench (Arsenal)
+│   ├── robots.ts, sitemap.ts  # Generated crawler files
+│   └── globals.css            # Global styles
+├── components/                # React components
+│   ├── animated-avatar.tsx    # Floating tech icons
+│   ├── header.tsx             # Navigation header
+│   ├── hero-section.tsx       # Hero section
+│   ├── work-experience.tsx    # Work experience section
+│   ├── projects-grid.tsx      # Projects showcase
+│   ├── workbench.tsx          # Arsenal (skills) section
+│   ├── loading-screen.tsx     # Animated loading screen
+│   ├── footer.tsx             # Site footer
+│   ├── public/                # Page content for the (public) routes
+│   └── ui/                    # Reusable UI primitives
+├── lib/                       # Project data, site URL, structured data, helpers
+└── public/                    # Static assets
 ```
 
 ## Tech Stack
@@ -152,37 +153,6 @@ any UI logic.
   handles all of it, so the code stays focused on content and styling.
 - **Typed data array** — separating content from UI makes the component
   easier to maintain and test independently.
-
-## AI Chatbot
-
-The portfolio includes a conversational assistant that answers questions
-about my background, experience, and projects.
-
-### How it works
-
-The chatbot is powered by the **Anthropic Claude API**. On each message,
-the frontend sends the user's question to a Next.js API route, which
-constructs a prompt containing my resume context — work experience,
-projects, and skills — as a system prompt. Claude uses that context to
-answer questions accurately without hallucinating details I haven't
-provided.
-
-Voice input is handled via the browser's **Web Speech API**. When the
-mic button is active, speech is transcribed locally in the browser and
-passed into the same text pipeline, so no audio ever leaves the client.
-
-### Key decisions
-
-- **System prompt as context** — rather than fine-tuning a model, I
-  inject my resume as structured context on every request. This keeps
-  responses grounded and makes it trivial to update when my experience
-  changes.
-- **API route as proxy** — the Claude API key never touches the client.
-  All requests go through `/api/chat`, which handles the Anthropic SDK
-  call server-side.
-- **Voice as progressive enhancement** — the chatbot is fully functional
-  without voice; speech input is layered on top for browsers that
-  support it.
 
 ## Contact
 
