@@ -9,15 +9,14 @@ import { Workbench } from "@/components/workbench"
 import { Footer } from "@/components/footer"
 import { CursorGlow } from "@/components/cursor-glow"
 import { LoadingScreen } from "@/components/loading-screen"
-import { AIChatbot } from "@/components/ai-chatbot"
 import { generateWebsiteStructuredData, generatePersonStructuredData } from "@/lib/structured-data"
+import { siteUrl } from "@/lib/site"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
-  
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sahildev.vercel.app'
-  const websiteStructuredData = generateWebsiteStructuredData(baseUrl)
-  const personStructuredData = generatePersonStructuredData() 
+
+  const websiteStructuredData = generateWebsiteStructuredData(siteUrl)
+  const personStructuredData = generatePersonStructuredData(siteUrl)
 
   return (
     <>
@@ -29,7 +28,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personStructuredData) }}
       />
-      
+
       {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
 
       <main
@@ -46,7 +45,6 @@ export default function Home() {
           <Workbench />
           <Footer />
         </div>
-        <AIChatbot />
       </main>
     </>
   )
