@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils"
-import { Github, ExternalLink } from "lucide-react"
 
 const wipItems = [
   {
@@ -8,7 +7,6 @@ const wipItems = [
     description: "Expert — NumPy, Pandas, asyncio, packaging",
     progress: 85,
     lastUpdated: "Expert",
-    url: "#",
   },
   {
     id: 2,
@@ -16,7 +14,6 @@ const wipItems = [
     description: "Expert — PyTorch, scikit-learn, XGBoost, model evaluation",
     progress: 85,
     lastUpdated: "Expert",
-    url: "#",
   },
   {
     id: 3,
@@ -24,7 +21,6 @@ const wipItems = [
     description: "Expert — RAG pipelines, prompt engineering, LangChain, LangGraph",
     progress: 85,
     lastUpdated: "Expert",
-    url: "#",
   },
   {
     id: 4,
@@ -32,7 +28,6 @@ const wipItems = [
     description: "Proficient — async APIs, Celery, Redis, WebSockets",
     progress: 65,
     lastUpdated: "Proficient",
-    url: "#",
   },
   {
     id: 5,
@@ -40,7 +35,6 @@ const wipItems = [
     description: "Proficient — AWS Glue, S3, Athena, pipeline orchestration",
     progress: 65,
     lastUpdated: "Proficient",
-    url: "#",
   },
   {
     id: 6,
@@ -48,7 +42,6 @@ const wipItems = [
     description: "Proficient — Next.js 14, TypeScript, Tailwind, Supabase",
     progress: 65,
     lastUpdated: "Proficient",
-    url: "#",
   },
   {
     id: 7,
@@ -56,7 +49,6 @@ const wipItems = [
     description: "Proficient — Docker, GitHub Actions, CI/CD, Vercel",
     progress: 65,
     lastUpdated: "Proficient",
-    url: "#",
   },
   {
     id: 8,
@@ -64,7 +56,6 @@ const wipItems = [
     description: "Proficient — pgvector, Neo4j, Graph RAG, embeddings",
     progress: 45,
     lastUpdated: "Proficient",
-    url: "#",
   },
 ]
 
@@ -99,11 +90,8 @@ export function Workbench() {
 
           <div className="divide-y divide-border/30">
             {wipItems.map((item, index) => (
-              <a
+              <div
                 key={item.id}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="group flex flex-col gap-4 p-5 sm:p-6 transition-all duration-300 sm:flex-row sm:items-center sm:justify-between hover:bg-secondary/30 animate-fade-in"
                 style={{ animationDelay: `${index * 100 + 400}ms` }}
               >
@@ -115,10 +103,6 @@ export function Workbench() {
                     <h4 className="font-mono text-sm font-medium tracking-tight transition-colors group-hover:text-gradient truncate">
                       {item.name}
                     </h4>
-                    <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      <Github className="h-3.5 w-3.5 text-muted-foreground" />
-                      <ExternalLink className="h-3 w-3 text-muted-foreground" />
-                    </div>
                   </div>
                   <p className="pl-6 text-xs text-muted-foreground line-clamp-2 sm:line-clamp-1">{item.description}</p>
                 </div>
@@ -148,7 +132,7 @@ export function Workbench() {
 
                   <span className="font-mono text-xs text-muted-foreground shrink-0">{item.lastUpdated}</span>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
 

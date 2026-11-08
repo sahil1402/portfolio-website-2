@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
-import { Github, ExternalLink, GitBranch, Activity } from "lucide-react"
+import { Activity } from "lucide-react"
 
 const wipItems = [
   {
@@ -11,9 +11,6 @@ const wipItems = [
     description: "Expert — NumPy, Pandas, asyncio, packaging",
     progress: 85,
     lastUpdated: "Expert",
-    url: "#",
-    branch: "Expert",
-    commits: 0,
   },
   {
     id: 2,
@@ -21,9 +18,6 @@ const wipItems = [
     description: "Expert — PyTorch, scikit-learn, XGBoost, model evaluation",
     progress: 85,
     lastUpdated: "Expert",
-    url: "#",
-    branch: "Expert",
-    commits: 0,
   },
   {
     id: 3,
@@ -31,9 +25,6 @@ const wipItems = [
     description: "Expert — RAG pipelines, prompt engineering, LangChain, LangGraph",
     progress: 85,
     lastUpdated: "Expert",
-    url: "#",
-    branch: "Expert",
-    commits: 0,
   },
   {
     id: 4,
@@ -41,9 +32,6 @@ const wipItems = [
     description: "Proficient — async APIs, Celery, Redis, WebSockets",
     progress: 70,
     lastUpdated: "Proficient",
-    url: "#",
-    branch: "Proficient",
-    commits: 0,
   },
   {
     id: 5,
@@ -51,9 +39,6 @@ const wipItems = [
     description: "Proficient — AWS Glue, S3, Athena, pipeline orchestration",
     progress: 70,
     lastUpdated: "Proficient",
-    url: "#",
-    branch: "Proficient",
-    commits: 0,
   },
   {
     id: 6,
@@ -61,9 +46,6 @@ const wipItems = [
     description: "Proficient — Next.js 14, TypeScript, Tailwind, Supabase",
     progress: 70,
     lastUpdated: "Proficient",
-    url: "#",
-    branch: "Proficient",
-    commits: 0,
   },
   {
     id: 7,
@@ -71,9 +53,6 @@ const wipItems = [
     description: "Proficient — Docker, GitHub Actions, CI/CD, Vercel",
     progress: 70,
     lastUpdated: "Proficient",
-    url: "#",
-    branch: "Proficient",
-    commits: 0,
   },
   {
     id: 8,
@@ -81,9 +60,6 @@ const wipItems = [
     description: "Proficient — pgvector, Neo4j, Graph RAG, embeddings",
     progress: 70,
     lastUpdated: "Proficient",
-    url: "#",
-    branch: "Proficient",
-    commits: 0,
   },
 ]
 
@@ -142,11 +118,8 @@ export function WorkbenchPageContent() {
 
               <div className="divide-y divide-border/30">
                 {wipItems.map((item, index) => (
-                  <a
+                  <div
                     key={item.id}
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className={cn(
                       "group flex flex-col gap-4 p-5 sm:p-6 transition-all duration-300 sm:flex-row sm:items-center sm:justify-between opacity-0",
                       isVisible && "animate-fade-in",
@@ -164,21 +137,10 @@ export function WorkbenchPageContent() {
                         <h4 className="font-mono text-sm font-medium tracking-tight transition-colors group-hover:text-gradient truncate">
                           {item.name}
                         </h4>
-                        <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                          <Github className="h-3.5 w-3.5 text-muted-foreground" />
-                          <ExternalLink className="h-3 w-3 text-muted-foreground" />
-                        </div>
                       </div>
                       <p className="pl-6 text-xs text-muted-foreground line-clamp-2 sm:line-clamp-1">
                         {item.description}
                       </p>
-                      <div className="pl-6 flex items-center gap-4 text-xs text-muted-foreground">
-                        <span className="flex items-center gap-1">
-                          <GitBranch className="h-3 w-3" />
-                          {item.branch}
-                        </span>
-                        <span>{item.commits} commits</span>
-                      </div>
                     </div>
 
                     <div className="flex items-center justify-between gap-6 pl-6 sm:pl-0 sm:justify-end">
@@ -208,7 +170,7 @@ export function WorkbenchPageContent() {
                       </div>
                       <span className="font-mono text-xs text-muted-foreground shrink-0">{item.lastUpdated}</span>
                     </div>
-                  </a>
+                  </div>
                 ))}
               </div>
 
