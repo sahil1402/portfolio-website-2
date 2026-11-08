@@ -9,9 +9,7 @@ import Link from "next/link"
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
-  // { label: "Notes", href: "/notes" },/
   { label: "Arsenal", href: "/workbench" },
-  { label: "Blog", href: "/blog" },
 ]
 
 const socialLinks = [
